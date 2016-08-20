@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Native CSS-->
+    <!--<link rel='stylesheet' href='/stylesheets/style.css' />-->
+
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Material Design -->
+    <link href="/css/bootstrap-material-design.min.css" rel="stylesheet">
+    <link href="/css/ripples.min.css" rel="stylesheet">
+
+    <!-- Dropdown.js -->
+    <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
+
+    <!--jQuery-->
+    <!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="page-header">
+            <h1><%= title %></h1>
+        </div>
+
+        <div class="jumbotron">
+            <a href="/board/write" class="btn btn-primary btn-raised">글쓰기</a>
+
+            <table width="600" class="table table-hover">
+                <tr>
+                    <th width="40">번호</th>
+                    <th width="260">제목</th>
+                    <th width="100">작성자</th>
+                    <th width="160">날짜</th>
+                </tr>
+                <% for(var i = 0, len = data.length; i < len, item = data[i]; i++){ %>
+                <tr>
+                    <td><%= max - i %></td>
+                    <td><a href="/board/read/<%= page %>/<%= item.idx %>"><%= item.title %></a></td>
+                    <td><%= item.id %></td>
+                    <td><%= item.regdate %></td>
+                </tr>
+                <% } %>
+            </table>
+            <div style="width: 46em; text-align: center; padding-top: 2px;">
+                <% if(page > pageSize){ %>
+                [ <a href="/board/list/1" style="text-decoration: none;">처음</a> ]
+                [ <a href="/board/list/<%= startPage-1 %>" style="text-decoration: none;">이전</a> ]
+                <% }else{ %>
+                [ <span style="color: gray">처음</span> ]
+                [ <span style="color: gray">이전</span> ]
+                <% } %>
+                &nbsp;&nbsp;
+                <% for(var i = startPage; i <= endPage; i++){ %>
+                    <% if ( i == page ){ %>
+                    [ <%= i %> ]
+                    <% } else { %>
+                    [ <a href="/board/list/<%= i %>" style="text-decoration: none;"><%= i %></a> ]
+                    <% } %>
+                <% } %>
+                &nbsp;&nbsp;
+                <% if(endPage < totalPage){ %>
+                [ <a href="/board/list/<%= endPage+1 %>" style="text-decoration: none;">다음</a> ]
+                [ <a href="/board/list/<%= totalPage %>" style="text-decoration: none;">마지막</a> ]
+                <% }else{ %>
+                [ <span style="color: gray;">다음</span> ]
+                [ <span style="color: gray;">마지막</span> ]
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Twitter Bootstrap -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Material Design for Bootstrap -->
+<script src="/js/material.min.js"></script>
+<script src="/js/ripples.min.js"></script>
+
+<script>
+    $.material.init();
+</script>
+</body>
+</html>
