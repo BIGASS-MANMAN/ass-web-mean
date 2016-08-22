@@ -22,12 +22,12 @@ router.get('/', function(req, res, next) {
 });
 
 /* get write form */
-router.get('/write', function(req, res, next) {
-    res.render('writeform', {title: "셋업"});
+router.get('/writesetup', function(req, res, next) {
+    res.render('writesetup', {title: "셋업"});
 });
 
 /* submit write form */
-router.post('/write', function (req, res, next) {
+router.post('/writesetup', function (req, res, next) {
     console.log(req.body);
 
     var filename = __dirname + "/../public/uploads/" + "reqbody.json";
@@ -70,6 +70,12 @@ router.post('/write', function (req, res, next) {
         // res.redirect('/board/list');
     });
     */
+
+    res.redirect('/board/writepost');
+});
+
+router.get('/writepost', function (req, res, next) {
+    res.render();
 });
 
 router.get('/list', function (req, res, next) {

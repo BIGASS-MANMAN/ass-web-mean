@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Material Design -->
+    <link href="/css/bootstrap-material-design.min.css" rel="stylesheet">
+    <link href="/css/ripples.min.css" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+
+    <!--Highlight.js-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+    <!--Native CSS-->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <!--jQuery-->
+    <!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>-->
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="page-header">
+            <h1><%= title %></h1>
+        </div>
+
+        <form action='/board/writesetup' method="post" class="jumbotron" style="padding: 50px;">
+            <!--Title-->
+            <div class="form-group form-group-lg label-floating">
+                <label for="title" class="control-label">Title</label>
+                <input type='text' name='title' id="title" class="form-control" required>
+                <span class="help-block">Please input the Title..</span>
+            </div>
+
+            <!--Unit test-->
+            <div class="form-group form-group-lg label-floating">
+                <label for="unittest" class="control-label">Unit Test</label>
+                <input type='text' name='unittest' id='unittest' class="form-control" required>
+                <span class="help-block">Please input the Unit test..</span>
+            </div>
+
+            <!--Classes-->
+            <div class="row form-group label-floating" id="dynamicInput_class">
+                <div style="float: left; margin: 10px;">
+                    <div class="col-md-6">
+                        <label for="0" class="control-label">Class</label>
+                        <input type='text' name='classes[]' id="0" class='form-control' required>
+                        <span class="help-block">Please input the class(es)</span>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" id="add_class" class="btn btn-fab btn-primary">
+                            <i class="material-icons">add</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!--Setup code-->
+            <hr style="border-color: deeppink;">
+            <div class="form-group form-group-lg label-floating">
+                <label for="unittest" class="control-label">Setup Code</label>
+                <textarea class="form-control" rows="10" name='setupcode' required></textarea>
+                <span class="help-block">Please input the setup code..</span>
+            </div>
+
+            <!--Setup table-->
+            <hr style="border-color: deeppink;">
+            <table class="table table-bordered table-striped table-hover form-group">
+                <thead>
+                    <tr>
+                        <th>Group</th>
+                        <th>Function</th>
+                        <th>Object</th>
+                        <th>Helper</th>
+                        <th>Input</th>
+                        <th>Output</th>
+                        <th>Test</th>
+                    </tr>
+                </thead>
+                <tbody id="dynamicInput_group">
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <input type='text' name='groups[]' class='form-control' placeholder="Group 1" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input type='text'	name='functions[]' class='form-control' placeholder="Function 1" required>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-fab btn-fab-mini" id="add_func">
+                                        <i class="material-icons">add</i>
+                                    </button>
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input type='text' name='objects[]' class='form-control' placeholder="Object" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group" id="mod">
+                                <input type='text' name='helpers[]' class='form-control' placeholder="Helper" disabled>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group" id="mod">
+                                <input type='text' name='inputs[]' class='form-control' placeholder="Input 1" disabled>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-fab btn-fab-mini" id="add_input" disabled>
+                                        <i class="material-icons">add</i>
+                                    </button>
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input type='text' name='outputs[]' class='form-control' placeholder="Output 1" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <select class="selectpicker form-control" name="tests[]" required>
+                                    <option value="O" data-icon='glyphicon-ok'></option>
+                                    <option value="X" data-icon='glyphicon-remove'></option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--Add more group-->
+            <div class="form-group">
+                <button type="button" id="add_group" class="btn btn-primary btn-fab btn-block">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+
+            <!--Submit-->
+            <hr style="border-color: deeppink;">
+            <div class="form-group" style="">
+                <button type="submit" class="btn btn-success btn-fab btn-block">
+                    <i class="material-icons">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Twitter Bootstrap -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Material Design for Bootstrap -->
+<script src="/js/material.min.js"></script>
+<script src="/js/ripples.min.js"></script>
+
+<!-- Sliders -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+
+<!--Highlight.js-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+<!--jQuery Script-->
+<script>
+//  Highlight.js Init.
+    hljs.initHighlightingOnLoad();
+
+//  Bootstrap-Materialized Init.
+    $.material.init();
+
+//  jQuery Script - Add input fields dynamically.
+    $(document).ready(function () {
+        var idx_class = 1;
+        var idx_group = 1;
+        var idx_func = 1;
+        var idx_io =  1;
+
+        $('#add_class').click(function () {
+            $('#dynamicInput_class').append(
+                    "<div id='"+idx_class+"' style='float: left; margin: 10px;'>" +
+                    "<div class='col-md-6'>" +
+                    "<input type='text' id='"+idx_class+"' placeholder='Class' name='classes[]' class='form-control'></div>" +
+                    "<div class='col-md-6'>" +
+                    "<button type='button' id='"+idx_class+"' class='btn btn-danger btn-fab btn_remove'><i class='material-icons'>remove</i> </button></div></div>"
+            );
+            idx_class++;
+        });
+
+        $(document).on('click', '#add_group', function(e){
+            idx_group++;
+            idx_func = 1;
+            idx_io = 1;
+
+            var replacements = {"%GROUP%":idx_group,"%FUNC%":idx_func,"%IO%":idx_io};
+            var group = "<tr> <td> <div class='input-group'> <input type='text' name='groups[]' class='form-control' placeholder='Group %GROUP%'> </div> </td> <td> <div class='input-group'> <input type='text' name='functions[]' class='form-control' placeholder='Function %FUNC%'> <span class='input-group-btn'> <button type='button' class='btn btn-fab btn-fab-mini' id='add_func'> <i class='material-icons'>add</i> </button> </span> </div> </td> <td> <div class='input-group'> <input type='text' name='objects[]' class='form-control' placeholder='Object'> </div> </td> <td> <div class='input-group'> <input type='text' name='helpers[]' class='form-control' placeholder='Helper'> </div> </td> <td> <div class='input-group' id='mod'> <input type='text' name='inputs[]' class='form-control' placeholder='Input %IO%' disabled> <span class='input-group-btn'> <button type='button' class='btn btn-fab btn-fab-mini' id='add_input' disabled> <i class='material-icons'>add</i> </button> </span> </div> </td> <td> <div class='input-group'> <input type='text' name='outputs[]' class='form-control'  placeholder='Output %IO%'> </div> </td> <td> <div class='input-group'> <select class='selectpicker form-control' name='tests[]'> <option value='O' data-icon='glyphicon-ok'></option> <option value='X' data-icon='glyphicon-remove'></option> </select> </div> </td> </tr>";
+            group = group.replace(/%\w+%/g, function(all) {
+                return replacements[all] || all;
+            });
+
+            $('#dynamicInput_group').append(group);
+            $('.selectpicker').selectpicker('refresh');
+        });
+
+        $(document).on('click', '#add_func', function (e) {
+            idx_func++;
+            idx_io = 1;
+
+            var replacements = {"%FUNC%":idx_func,"%IO%":idx_io};
+            var func = "<tr> <td> <div class='input-group'> </div> </td> <td> <div class='input-group'> <input type='text'	name='functions[]' class='form-control' placeholder='Function %FUNC%'> </div> </td> <td> <div class='input-group'> <input type='text' name='objects[]' class='form-control' placeholder='Object'> </div> </td> <td> <div class='input-group'> <input type='text' name='helpers[]' class='form-control' placeholder='Helper'> </div> </td> <td> <div class='input-group' id='mod'> <input type='text' name='inputs[]' class='form-control' placeholder='Input %IO%' disabled> <span class='input-group-btn'> <button type='button' class='btn btn-fab btn-fab-mini' id='add_input' disabled> <i class='material-icons'>add</i> </button> </span> </div> </td> <td> <div class='input-group'> <input type='text' name='outputs[]' class='form-control' placeholder='Output %IO%'> </div> </td> <td> <div class='input-group'> <select class='selectpicker form-control' name='tests[]'> <option value='O' data-icon='glyphicon-ok'></option> <option value='X' data-icon='glyphicon-remove'></option> </select> </div> </td> </tr>";
+            func = func.replace(/%\w+%/g, function(all) {
+                return replacements[all] || all;
+            });
+
+            $('#dynamicInput_group').append(func);
+
+            $('.selectpicker').selectpicker('refresh');     // TD:Test select option init.
+        })
+
+        $(document).on('click', '#mod', function (e) {
+            console.log($('this'));
+            $('#mod input, #mod span button').removeAttr('disabled');
+        });
+
+        $(document).on('click', '#add_input', function (e) {
+            idx_io++;
+
+            var inputTDtag = $(this).parent().parent().parent();
+            var outputTDtag = inputTDtag.next();
+            var testTDtag = outputTDtag.next();
+
+            var replacements = {"%FUNC%":idx_func,"%IO%":idx_io};
+
+            var inputTag = "<div class='input-group'> <input type='text' name='inputs[]' class='form-control' placeholder='Input %IO%' '> </div>";
+            inputTag = inputTag.replace(/%\w+%/g, function(all) {
+                return replacements[all] || all;
+            });
+            var outputTag = "<div class='input-group'><input type='text' name='outputs[]' class='form-control' placeholder='Output %IO%'></div>";
+            outputTag = outputTag.replace(/%\w+%/g, function(all) {
+                return replacements[all] || all;
+            });
+
+
+            inputTDtag.append(inputTag);
+            outputTDtag.append(outputTag);
+            testTDtag.append("<div class='input-group'><select class='selectpicker form-control' name='tests[]'> <option value='O' data-icon='glyphicon-ok'></option> <option value='X' data-icon='glyphicon-remove'></option> </select> </div>");
+
+            $('.selectpicker').selectpicker('refresh');     // TD:Test select option init.
+        });
+
+        $(document).on('click', '.btn_remove', function (e) {
+            var btn_id = this.id;
+            $('#'+btn_id).remove();
+        })
+    });
+</script>
+
+</body>
+</html>
