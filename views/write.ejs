@@ -1,42 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title><%= title %></title>
-
-    <!-- Mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Material Design fonts -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Material Design -->
-    <link href="/css/bootstrap-material-design.min.css" rel="stylesheet">
-    <link href="/css/ripples.min.css" rel="stylesheet">
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
-
-    <!--Highlight.js-->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
-
-    <!-- Angular Material style sheet -->
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-
-    <!--Date Range Picker-->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
-    <!--Native CSS-->
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-
-    <!--jQuery-->
-    <!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>-->
-    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
-</head>
-<body>
+<% include header.ejs %>
 <div class="container">
     <div class="page-header">
         <h1>Write</h1>
@@ -268,13 +230,15 @@
         <!-------------------------->
 
         <!--Submit-->
-        <hr style="border-color: deeppink;">
+        <!--<hr style="border-color: deeppink;">-->
         <div class="form-group" style="">
             <button type="submit" class="btn btn-success btn-fab btn-block well">
                 <i class="material-icons">send</i>
             </button>
         </div>
     </form>
+
+    <p>To easily setup file uploading in an Express.js server application you can use <a href="https://github.com/expressjs/multer">Multer.js</a></p> <p>Start by installing required node dependencies:</p> <pre>npm init npm install -S express multer body-parser jade</pre> <p>Setup basics for your Express.js application:</p> <pre><small><span style="color:#A9A9A9">// <strong>index.js</strong> start of file</span></small> var express = require('express'); var multer = require('multer'), bodyParser = require('body-parser'), path = require('path'); var app = new express(); app.use(bodyParser.json()); // view engine setup app.set('views', path.join(__dirname, 'views')); app.set('view engine', 'jade');</pre> <p> </p> <p>Setup route for GET request, where the form will be displayed:</p> <pre><span style="color:rgb(169, 169, 169)"><small>// <strong>index.js</strong> continued</small> </span>app.get('/', function(req, res){ res.render('index'); }); </pre> <p> </p> <p>Create your form for file uploading, don't forget the <code>enctype="multipart/form-data"</code> for the <code>form</code> tag</p> <pre><span style="color:rgb(169, 169, 169)"><small>//- views/index.jade</small></span> html head title body form(method="post",enctype="multipart/form-data",action="/") p input(type="text",name="title",placeholder="title") p input(type="file",name="upl") p input(type="submit") </pre> <p> </p> <p>Setup route for POST request, the <code>action</code> field of the form:</p> <pre><span style="color:rgb(169, 169, 169)"><small>// <strong>index.js</strong> continued </small></span>app.post('/', <strong>multer({ dest: './uploads/'}).single('upl')</strong>, function(req,res){ console.log(req.body); //form fields <span style="color:#A9A9A9">	/* <small>example output:</small> { title: 'abc' } */</span> console.log(req.file); //form files <span style="color:#A9A9A9">	/* <small>example output: { fieldname: 'upl', </small></span>            <span style="color:#A9A9A9"><small>  originalname: 'grumpy.png', </small></span>            <span style="color:#A9A9A9"><small>  encoding: '7bit', </small></span>            <span style="color:#A9A9A9"><small>  mimetype: 'image/png', </small></span>            <span style="color:#A9A9A9"><small>  destination: './uploads/', </small></span>            <span style="color:#A9A9A9"><small>  filename: '436ec561793aa4dc475a88e84776b1b9', </small></span>            <span style="color:#A9A9A9"><small>  path: 'uploads/436ec561793aa4dc475a88e84776b1b9', </small></span>            <span style="color:#A9A9A9"><small>  size: 277056 }</small> */</span> res.status(204).end(); }); </pre> <p>Note, that the <code>dest</code> parameter is relative to the server root folder, that is where the <code>index.js</code> is located.</p> <p> </p> <p>Finally, start listening</p> <pre><small><span style="color:#A9A9A9">// <strong>index.js</strong> end of file</span></small><span style="color:rgb(169, 169, 169)"> </span>var port = 3000; app.listen( port, <span style="color:#808080">function(){ console.log('listening on port '+port); }</span> );</pre> <p> </p> <p>And run the server:</p> <pre>node index</pre> <p> </p> <p>Test it by uploading a file and find the uploaded file in the <code>uploads</code> folder. Multer will rename the file to a unique name to prevent collisions, so you will want to save the data from the <code>req.files</code> to your data store.</p> <p> </p>
 </div>
 
 
@@ -282,31 +246,7 @@
 
 
 
-<!-- Twitter Bootstrap -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Material Design for Bootstrap -->
-<script src="/js/material.min.js"></script>
-<script src="/js/ripples.min.js"></script>
-
-<!-- Sliders -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
-
-<!--Highlight.js-->
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-
-<!-- Angular Material requires Angular.js Libraries -->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-
-<!-- Angular Material Library -->
-<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<% include footer.ejs %>
 
 <!--Moment.js-->
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>

@@ -1,94 +1,65 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script>
-        $(function () {
-            $('#modify').click(function () {
-                location.href = "/board/update/<%=page%>/<%=data.num%>";
-            });
+<% include header.ejs %>
 
-            $('#btnDel').click(function () {
-                $('#frm1').show();
-                $('#btnList').hide();
-            });
-
-            $('#cancel').click(function () {
-                $('#btnList').show();
-                $('#frm1').hide();
-            });
-
-            $('#del').click(function () {
-                if($('#passwd').val() == "") {
-                    alert('비밀번호를 꼭 입력하세요!!!!');
-                    $('#passwd').focus();
-                    return;
-                }
-
-                document.frm1.submit();
-            });
-        });
-    </script>
-</head>
-<body>
 <div class="container">
     <div class="row">
-        <h1><%= title %></h1>
-        <a href="/board/list">리스트</a><br/>
-        <table  class="table table-condensed">
-            <tr>
-                <th>제목</th>
-                <td><%=data.title%></td>
-            </tr>
-            <tr>
-                <th>내용</th>
-                <td>
-            <!--<pre>-->
-              <%=data.content%>
-            <!--</pre>-->
-                </td>
-            </tr>
-            <tr>
-                <th>아이디</th>
-                <td><%=data.id%></td>
-            </tr>
-            <tr>
-                <th>날짜</th>
-                <td><%=data.regdate%></td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <form action="/board/upload" method="post" enctype="multipart/form-data">
-                        <input type="file" name="attachedFile" class="form-control"/>
-                        <input type="submit" value="제출" class="btn btn-primary"/>
-                    </form>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-            <span id="btnList">
-              <input type="button" value="수정" id="modify" class="btn btn-primary"/>
-              <input type="button" value="삭제" id="btnDel" class="btn btn-danger"/>
-              <input type="reset" value="취소" class="btn btn-default" onclick="history.back();"/>
-            </span>
-                    <form action="/board/delete" method="post" style="display:none" name="frm1" id="frm1" class="form-inline">
-                        <input type="hidden" name="num" value="<%=data.num%>" class="form-control"/>
-                        <input type="hidden" name="page" value="<%=page%>" class="form-control"/>
-                        <div>
-                            비밀번호 : <input type="password" name="passwd" id="passwd" size="12" maxlength="12" class="form-control"/>
-                            <input type="button" value="DELETE" id="del" class="btn btn-primary"/>
-                            <input type="button" value="CANCEL" id="cancel" class="btn btn-default"/>
-                        </div>
-                    </form>
-                </td>
-            </tr>
-        </table>
+        <div class="jumbotron">
+            <div class="page-header">
+                <h1><%=data.subject%></h1>
+            </div>
+            <table  class="table table-bordered">
+                <tr>
+                    <th>제출기한</th>
+                    <td><%=data.date%></td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td><%=data.content%></td>
+                </tr>
+                <tr>
+                    <th>제출양식</th>
+                    <td><%=data.submit_form%></td>
+                </tr>
+                <tr>
+                    <th>첨부파일</th>
+                    <td><%=data.attachment%></td>
+                </tr>
+                <tr>
+                    <th>아이디</th>
+                    <td><%=data.id%></td>
+                </tr>
+                <tr>
+                    <th>제출</th>
+                    <td>
+                        <form action="/board/upload" method="post" enctype="multipart/form-data">
+                            <div class="form-group form-group-lg label-floating">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="material-icons">attachment</i> </span>
+                                    <label for="attachment" class="control-label">첨부파일</label>
+                                    <input type='file' name='attachment' id="attachment" class="form-control">
+
+                                    <input type="text" readonly="" class="form-control">
+                                    <span class="input-group-btn input-group-sm">
+                                      <button type="button" class="btn btn-fab btn-fab-mini btn-danger">
+                                        <i class="material-icons">attach_file</i>
+                                      </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <button type="submit">제출</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <a href="/board/list" class="btn btn-lg btn-info btn-raised">목록</a>
+        </div>
     </div>
 </div>
 </body>
+
+<% include footer.ejs %>
+
+<script>
+    $.material.init();
+</script>
+
 </html>

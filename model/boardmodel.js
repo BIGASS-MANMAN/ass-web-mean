@@ -8,24 +8,15 @@ var ai = require('mongoose-auto-increment');
 ai.initialize(db);
 
 var BoardSchema = new mongoose.Schema({
-    "id": String,
-    "title": String,
-    "unittest": String,
-    "setupcode": String,
-    "setupcodeFN": String,
-    "function": String,
-    "object": String,
-    "helper": String,
-    "input": String,
-    "output": String,
-    "test": Boolean,
-    "group": String,
+    "subject": String,
+    "date": String,
     "content": String,
-    "passwd": String,
-    "regdate": {
-        "type": Date,
-        "default": Date.now
-    }
+    "submit_form": String,
+    "attachment": String
+    // "regdate": {
+    //     "type": Date,
+    //     "default": Date.now
+    // }
 });
 
 BoardSchema.plugin(ai.plugin, {

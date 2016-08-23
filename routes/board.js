@@ -5,10 +5,11 @@ var express = require('express');
 var router = express.Router();
 
 var fs = require('fs');
+var path = require('path');
 var bodyparser = require('body-parser');
 var multer = require('multer');
 var upload = multer({
-    dest: '../public/uploads/'
+    dest: __dirname + '/../public/uploads/'
 });
 
 var db = require('../model/db');
@@ -34,13 +35,13 @@ router.post('/write', function (req, res, next) {
 
     fs.writeFile(filename, JSON.stringify(req.body), 'utf8', function (e) {
         // res.json({success: true});
-node
         if(e)
             console.log(e);
         else
-            console.log("/public/uploads/ 경로에 파일 쓰기 성공");
+            console.log(filename + " 파일 쓰기 성공");
     });
 
+    // Setup make file.
     var title = req.body.title;
     var unittest = req.body.unittest;
     var classes = req.body.class;
@@ -54,15 +55,13 @@ node
     var tests = req.body.tests;
     var groups = req.body.groups;
 
-
-
-    /* 잠깐만 디비에 저장안함.
-    // DB 모델 생성 및 저장.
+    // DB model create & save.
     var board = new BoardModel({
-        "title": title,
-        "content": content,
-        "passwd": passwd,
-        "id": 'sanghoon'
+        "subject": req.body.subject,
+        "date": req.body.date,
+        "content": req.body.content,
+        "submit_form": req.body.submit_form,
+        "attachment": req.body.attachment
     });
 
     board.save(function (err, doc) {
@@ -71,7 +70,6 @@ node
         // res.json(doc);
         // res.redirect('/board/list');
     });
-    */
 
     res.redirect('/board/list');
 });
@@ -141,23 +139,23 @@ router.get('/read/:page/:idx', function (req, res, next) {
     });
 });
 
-/*  파일 업로드 ( multer 모듈 )
-router.post('/upload', upload.single('attachedFile'), function (req, res, next) {
+router.post('/upload', upload.single('attachment'), function (req, res, next) {
     console.log(req.body);
     console.log(req.file);
 
     res.redirect('/board/list');
 });
-*/
+
 
 // 글 300개 임의 작성
 router.get('/write300', function (req, res, next) {
    for(var i = 1; i < 300; i++){
        var board = new BoardModel({
-            "title": '제목' + i,
-            "content": '내용' + i,
-            "passwd": '1234',
-            'id': 'tongue'
+            "subject": i + '차 과제',
+            "content": i,
+            "submit_form": 'jpg',
+            'date': '오늘',
+            'attached': '첨부맨'
        });
 
        board.save(function (err, doc) {

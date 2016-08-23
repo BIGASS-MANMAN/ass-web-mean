@@ -1,53 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title><%= title %></title>
-    <!-- Mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Native CSS-->
-    <!--<link rel='stylesheet' href='/stylesheets/style.css' />-->
-
-    <!-- Material Design fonts -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Material Design -->
-    <link href="/css/bootstrap-material-design.min.css" rel="stylesheet">
-    <link href="/css/ripples.min.css" rel="stylesheet">
-
-    <!-- Dropdown.js -->
-    <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
-
-    <!--jQuery-->
-    <!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>-->
-    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
-<body>
+<% include header.ejs %>
 <div class="container">
     <div class="row">
         <div class="page-header">
             <h1><%= title %></h1>
         </div>
-
         <div class="jumbotron">
-            <p><a href="/board/write" class="btn btn-primary btn-raised">과제 작성</a></p>
-
-            <table width="600" class="table table-hover">
+            <!--<p><a href="/board/write" class="btn btn-primary btn-raised">과제 작성</a></p>-->
+            <table class="table table-hover table-striped">
                 <tr>
-                    <th width="40">번호</th>
-                    <th width="260">제목</th>
-                    <th width="100">작성자</th>
-                    <th width="160">날짜</th>
+                    <th>번호</th>
+                    <th>과제명</th>
+                    <th>제출기한</th>
                 </tr>
                 <% for(var i = 0, len = data.length; i < len, item = data[i]; i++){ %>
                 <tr>
                     <td><%= max - i %></td>
-                    <td><a href="/board/read/<%= page %>/<%= item.idx %>"><%= item.title %></a></td>
-                    <td><%= item.id %></td>
-                    <td><%= item.regdate %></td>
+                    <td><a href="/board/read/<%= page %>/<%= item.idx %>"><%= item.subject %></a></td>
+                    <td><%= item.date %></td>
                 </tr>
                 <% } %>
             </table>
@@ -80,13 +49,7 @@
     </div>
 </div>
 
-
-<!-- Twitter Bootstrap -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Material Design for Bootstrap -->
-<script src="/js/material.min.js"></script>
-<script src="/js/ripples.min.js"></script>
+<% include footer.ejs %>
 
 <script>
     $.material.init();
