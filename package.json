@@ -6,6 +6,9 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "angular": "^1.5.8",
+    "angular-circular-timepicker": "^0.3.0",
+    "angularjs": "0.0.1",
     "body-parser": "~1.15.1",
     "connect-form": "^0.2.1",
     "cookie-parser": "~1.4.3",
@@ -15,6 +18,7 @@
     "express-session": "^1.14.0",
     "formidable": "^1.0.17",
     "highlight.js": "^9.6.0",
+    "moment": "^2.14.1",
     "mongoose": "^4.5.8",
     "mongoose-auto-increment": "^5.0.1",
     "morgan": "~1.7.0",

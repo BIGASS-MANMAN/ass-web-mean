@@ -4,3 +4,11 @@ hr {
     margin-top: 100px;
     margin-bottom: 100px;
 }
+
+.panel{
+    margin:4%;
+}
+
+.panel-body{
+    padding:5%;
+}

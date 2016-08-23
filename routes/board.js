@@ -33,8 +33,8 @@ router.post('/write', function (req, res, next) {
     var filename = __dirname + "/../public/uploads/" + "reqbody.json";
 
     fs.writeFile(filename, JSON.stringify(req.body), 'utf8', function (e) {
-        res.json({success: true});
-
+        // res.json({success: true});
+node
         if(e)
             console.log(e);
         else
@@ -54,6 +54,8 @@ router.post('/write', function (req, res, next) {
     var tests = req.body.tests;
     var groups = req.body.groups;
 
+
+
     /* 잠깐만 디비에 저장안함.
     // DB 모델 생성 및 저장.
     var board = new BoardModel({
@@ -71,11 +73,7 @@ router.post('/write', function (req, res, next) {
     });
     */
 
-    res.redirect('/board/writepost');
-});
-
-router.get('/writepost', function (req, res, next) {
-    res.render();
+    res.redirect('/board/list');
 });
 
 router.get('/list', function (req, res, next) {
