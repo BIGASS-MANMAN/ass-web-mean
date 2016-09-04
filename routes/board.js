@@ -55,6 +55,8 @@ router.post('/write', function (req, res, next) {
     var tests = req.body.tests;
     var groups = req.body.groups;
 
+
+
     // DB model create & save.
     var board = new BoardModel({
         "subject": req.body.subject,

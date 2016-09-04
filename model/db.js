@@ -2,7 +2,8 @@
  * Created by kuvshinov on 16. 8. 4.
  */
 var mongoose = require('mongoose');
-var uri = 'mongodb://gms.onthewifi.com/board';
+// var uri = 'mongodb://gms.onthewifi.com/board';
+var uri = 'mongodb://localhost/board';
 var options = {
     "server": {
         "poolSize": 100
