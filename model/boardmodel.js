@@ -8,15 +8,23 @@ var ai = require('mongoose-auto-increment');
 ai.initialize(db);
 
 var BoardSchema = new mongoose.Schema({
-    "subject": String,
-    "date": String,
-    "content": String,
-    "submit_form": String,
-    "attachment": String
+    subject: String,
+    date: String,
+    content: String,
+    submit_form: String,
+    attachment: String
     // "regdate": {
     //     "type": Date,
     //     "default": Date.now
     // }
+});
+
+var UserSchema = new mongoose.Schema({
+    id: String,
+    pw: String,
+    email: String,
+    name: String,
+    hakbun: String
 });
 
 BoardSchema.plugin(ai.plugin, {
@@ -26,6 +34,10 @@ BoardSchema.plugin(ai.plugin, {
     "incrementBy": 1
 });
 
+// DB 스키마 컴파일링 시작.
 var Board = mongoose.model('Board', BoardSchema);
+var User = mongoose.model('User', UserSchema);
+// DB 스키마 컴파일링 종료.
 
 module.exports = Board;
+module.exports = User;

@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('express-session');
+var engine = require('ejs-locals');
 
 var routes = require('./routes/index');
 var board = require('./routes/board');
@@ -14,6 +14,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.engine('ejs', engine);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -57,12 +58,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-app.use(session({
-  secret: 'bimil',
-  resave: false,
-  saveUninitialized: true
-}));
 
 var http = require('http');
 app.set('port', process.env.PORT || 3000);

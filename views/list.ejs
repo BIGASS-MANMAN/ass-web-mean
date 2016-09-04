@@ -1,4 +1,5 @@
-<% include header.ejs %>
+<% layout('header') -%>
+
 <div class="container">
     <div class="row">
         <div class="page-header">
@@ -20,7 +21,7 @@
                 </tr>
                 <% } %>
             </table>
-            <div style="width: 46em; text-align: center; padding-top: 2px;">
+            <div class="">
                 <% if(page > pageSize){ %>
                 [ <a href="/board/list/1" style="text-decoration: none;">처음</a> ]
                 [ <a href="/board/list/<%= startPage-1 %>" style="text-decoration: none;">이전</a> ]
@@ -48,11 +49,3 @@
         </div>
     </div>
 </div>
-
-<% include footer.ejs %>
-
-<script>
-    $.material.init();
-</script>
-</body>
-</html>

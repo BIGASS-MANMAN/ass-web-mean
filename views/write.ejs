@@ -1,4 +1,5 @@
-<% include header.ejs %>
+<%- layout('header') %>
+
 <div class="container">
     <div class="page-header">
         <h1>Write</h1>
@@ -246,8 +247,6 @@
 
 
 
-<% include footer.ejs %>
-
 <!--Moment.js-->
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
@@ -256,12 +255,6 @@
 
 <!--jQuery Script-->
 <script>
-//  Highlight.js Init.
-    hljs.initHighlightingOnLoad();
-
-//  Bootstrap-Materialized Init.
-    $.material.init();
-
 //  jQuery Script - Add input fields dynamically.
     $(document).ready(function () {
         var idx_class = 1;
@@ -360,6 +353,3 @@
         });
     });
 </script>
-
-</body>
-</html>
