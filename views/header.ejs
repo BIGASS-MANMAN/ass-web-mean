@@ -171,7 +171,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="material-icons">vpn_key</i> </span>
                                 <label for="user_hakbun" class="control-label">학번</label>
-                                <input type="number" class="form-control" name="user_hakbun" id="user_hakbun" maxlength="10">
+                                <input type="number" class="form-control" name="user_hakbun" id="user_hakbun">
                             </div>
                         </div>
                     </fieldset>
@@ -213,7 +213,9 @@
                     },
                     user_hakbun: {
                         required: true,
-                        minlength: 10
+                        minlength: 10,
+                        maxlength: 10,
+                        remote: {type: 'post', url: '/board/check'}
                     }
                 },
                 messages:{
@@ -238,7 +240,9 @@
                     },
                     user_hakbun: {
                         required: "학번을 입력하세요.",
-                        minlength: $.validator.format("학번은 {0} 자리를 입력해주세요.")
+                        minlength: $.validator.format("학번은 {0} 자리를 입력해주세요."),
+                        maxlength: $.validator.format("학번은 {0} 자리를 입력해주세요."),
+                        remote: "이미 가입된 학번입니다."
                     }
                 }
             });

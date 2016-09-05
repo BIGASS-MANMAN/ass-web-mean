@@ -1,3 +1,7 @@
+th {
+    background-color: #efefef;
+    vertical-align: middle;
+}
 
 hr {
     border-style: dashed;
@@ -10,5 +14,5 @@ hr {
 }
 
 .panel-body{
-    padding:5%;
+    padding:3%;
 }

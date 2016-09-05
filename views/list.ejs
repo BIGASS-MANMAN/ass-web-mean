@@ -21,10 +21,10 @@
                 </tr>
                 <% } %>
             </table>
-            <div class="">
+            <div class="table">
                 <% if(page > pageSize){ %>
-                [ <a href="/board/list/1" style="text-decoration: none;">처음</a> ]
-                [ <a href="/board/list/<%= startPage-1 %>" style="text-decoration: none;">이전</a> ]
+                [ <a href="/board/list/1">처음</a> ]
+                [ <a href="/board/list/<%= startPage-1 %>" 이전</a> ]
                 <% }else{ %>
                 [ <span style="color: gray">처음</span> ]
                 [ <span style="color: gray">이전</span> ]
@@ -34,13 +34,13 @@
                     <% if ( i == page ){ %>
                     [ <%= i %> ]
                     <% } else { %>
-                    [ <a href="/board/list/<%= i %>" style="text-decoration: none;"><%= i %></a> ]
+                    [ <a href="/board/list/<%= i %>"><%= i %></a> ]
                     <% } %>
                 <% } %>
                 &nbsp;&nbsp;
                 <% if(endPage < totalPage){ %>
-                [ <a href="/board/list/<%= endPage+1 %>" style="text-decoration: none;">다음</a> ]
-                [ <a href="/board/list/<%= totalPage %>" style="text-decoration: none;">마지막</a> ]
+                [ <a href="/board/list/<%= endPage+1 %>">다음</a> ]
+                [ <a href="/board/list/<%= totalPage %>">마지막</a> ]
                 <% }else{ %>
                 [ <span style="color: gray;">다음</span> ]
                 [ <span style="color: gray;">마지막</span> ]

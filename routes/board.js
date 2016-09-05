@@ -28,10 +28,16 @@ router.get('/', function(req, res, next) {
     res.render('board', { title: '게시판' });
 });
 
-router.post('/upload', function (req, res, next) {
+router.post('/upload/:idx', function (req, res, next) {
     console.log(req.file);
     console.log(req.session);
 
+    console.log(req.params.idx);
+
+    var result = BoardModel.findOne({'idx': req.params.idx});
+    console.log("디비 : " + result);
+
+    // var newDir = __dirname + '/../public/uploads/' + result.subject + '/' + req.session.hakbun + "/";
     var newDir = __dirname + '/../public/uploads/' + req.session.hakbun + "/";
 
     fs.mkdir(newDir, function(e) {
@@ -41,11 +47,12 @@ router.post('/upload', function (req, res, next) {
 
     var storage = multer.diskStorage({
         destination: function (req, file, cb) {
-            cb(null, __dirname + '/../public/uploads/' + req.session.hakbun + "/");
+            // cb(null, __dirname + '/../public/uploads/' + req.session.hakbun + "/");
+            cb(null, newDir);
         },
         filename: function (req, file, cb) {
             var date = Sugar.Date.format(new Date(),  "%Y-%m-%d,%H'%M'%S");
-            cb(null, req.session.hakbun + req.session.name +'-' + date + ".png");
+            cb(null, req.session.hakbun + "_" + req.session.name +'-' + date + ".png");
         }
     });
     var upload = multer({storage: storage}).single('attachment');
@@ -101,23 +108,17 @@ router.post('/login', function (req, res, next) {
             req.session.hakbun = user.hakbun;
             req.session.name = user.name;
 
-            console.log("쎄션값 : " + req.session.id);
-            console.log("쎄션아이디 : " + req.session.username);
-            console.log("디비학번 : " + user.hakbun);
-            console.log("쎄션학번 : " + req.session.hakbun);
-            console.log("로그인 성공");
-
             res.redirect('/board/list');
         }
         else{
             console.log("로그인 실패");
-            res.redirect('//google.com');
+            res.redirect('//google.co.kr');
         }
     });
 });
 
 router.post('/check', function (req, res, next) {
-    UserModel.find({ id: req.body.user_id }, function (e, user) {
+    UserModel.find({$or:[ {id: req.body.user_id}, {hakbun: req.body.user_hakbun}]}, function (e, user) {
         if (user.length == 0) {
             console.log("안 중복");
             res.send("true");
@@ -246,7 +247,7 @@ router.get('/read/:page/:idx', function (req, res, next) {
 
             BoardModel.findOne({"idx": idx}, function (err, docs) {
                 if (err) console.error('err', err);
-                res.render('read', {"title": "글 읽기", "data": docs, "page": page, "sess": req.session});
+                res.render('read', {"title": "글 읽기", "data": docs, "page": page, "sess": req.session, "idx": idx});
             });
         });
     }
