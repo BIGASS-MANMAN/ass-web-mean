@@ -55,7 +55,11 @@
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
+                <% if(sess.username){ %>
                 <li><a href="/board/write" class="">글쓰기</a> </li>
+                <% }else{ %>
+                <li><a href="#" data-toggle="modal" data-target="#member_login">글쓰기</a> </li>
+                <% } %>
                 <li><a href="/board/list" class="">목록</a></li>
             </ul>
             <form class="navbar-form navbar-left">
@@ -64,8 +68,12 @@
                 </div>
             </form>
             <div class="nav navbar-nav navbar-right">
+                <% if (sess.perm) {%>
+                <a href="/board/member" class="btn btn-info btn-raised navbar-btn">과제 관리</a>
+                <% } %>
+
                 <% if(sess.username){ %>
-                <a href="/board/logout" type="button" class="btn btn-inverse btn-raised navbar-btn">로그아웃</a>
+                <a href="/board/logout" class="btn btn-inverse btn-raised navbar-btn">로그아웃</a>
                 <% }else{ %>
                 <button type="button" class="btn btn-inverse btn-raised navbar-btn" data-toggle="modal" data-target="#member_login">로그인</button>
                 <% } %>
@@ -89,7 +97,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="material-icons">account_circle</i> </span>
                                 <label for="user_id" class="control-label">Username</label>
-                                <input type="text" class="form-control" name="user_id" id="user_id" maxlength="32" required>
+                                <input type="text" class="form-control" name="user_id" id="user_id" maxlength="32" required autofocus>
                             </div>
                         </div>
                         <div class="form-group label-floating">
@@ -136,7 +144,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="material-icons">account_circle</i> </span>
                                 <label for="user_id" class="control-label">아이디</label>
-                                <input type="text" class="form-control" name="user_id" id="user_id" >
+                                <input type="text" class="form-control" name="user_id" id="user_id" autofocus>
                             </div>
                         </div>
                         <div class="form-group label-floating">

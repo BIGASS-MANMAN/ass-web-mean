@@ -1,8 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/views/header.ejs" line="131" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5510b245-a455-4e59-8558-22e195a01ed2" name="Default" comment="#8">
+    <list default="true" id="5510b245-a455-4e59-8558-22e195a01ed2" name="Default" comment="#10">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/fs-extra/.nyc_output/59254.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/streams/create-output-stream.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/streams/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/walk/walker.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/boardmodel.js" afterPath="$PROJECT_DIR$/model/boardmodel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/db.js" afterPath="$PROJECT_DIR$/model/db.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/.npmignore" afterPath="$PROJECT_DIR$/node_modules/fs-extra/.npmignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/fs-extra/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/LICENSE" afterPath="$PROJECT_DIR$/node_modules/fs-extra/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/README.md" afterPath="$PROJECT_DIR$/node_modules/fs-extra/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy-sync/copy-file-sync.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy-sync/copy-file-sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy-sync/copy-sync.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy-sync/copy-sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy-sync/index.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy-sync/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy/copy.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy/copy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy/index.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy/ncp.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/copy/ncp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/empty/index.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/empty/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/ensure/index.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/ensure/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/index.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/json/index.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/json/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/json/output-json-sync.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/json/output-json-sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/json/output-json.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/json/output-json.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/mkdirs/index.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/mkdirs/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/mkdirs/mkdirs-sync.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/mkdirs/mkdirs-sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/mkdirs/mkdirs.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/mkdirs/mkdirs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/move/index.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/move/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/output/index.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/output/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/remove/index.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/remove/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/util/assign.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/util/assign.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/util/utimes.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/util/utimes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/lib/walk/index.js" afterPath="$PROJECT_DIR$/node_modules/fs-extra/lib/walk/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fs-extra/package.json" afterPath="$PROJECT_DIR$/node_modules/fs-extra/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/.travis.yml" afterPath="$PROJECT_DIR$/node_modules/mkdirp/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/LICENSE" afterPath="$PROJECT_DIR$/node_modules/mkdirp/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/bin/cmd.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/bin/cmd.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/bin/usage.txt" afterPath="$PROJECT_DIR$/node_modules/mkdirp/bin/usage.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/examples/pow.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/examples/pow.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/index.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/package.json" afterPath="$PROJECT_DIR$/node_modules/mkdirp/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/readme.markdown" afterPath="$PROJECT_DIR$/node_modules/mkdirp/readme.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/chmod.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/chmod.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/clobber.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/clobber.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/mkdirp.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/mkdirp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/opts_fs.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/opts_fs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/opts_fs_sync.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/opts_fs_sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/perm.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/perm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/perm_sync.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/perm_sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/race.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/race.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/rel.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/rel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/return.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/return.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/return_sync.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/return_sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/root.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/root.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/sync.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/umask.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/umask.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/umask_sync.js" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/umask_sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/uploads/reqbody.json" afterPath="$PROJECT_DIR$/public/uploads/reqbody.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/board.js" afterPath="$PROJECT_DIR$/routes/board.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/header.ejs" afterPath="$PROJECT_DIR$/views/header.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/list.ejs" afterPath="$PROJECT_DIR$/views/list.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/read.ejs" afterPath="$PROJECT_DIR$/views/read.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/write.ejs" afterPath="$PROJECT_DIR$/views/write.ejs" />
     </list>
     <ignored path="exam.iws" />
@@ -25,14 +91,14 @@
     <favorites_list name="exam" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.37759337">
+    <splitter split-orientation="horizontal" split-proportion="0.34763762">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="board.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/routes/board.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="18">
-                  <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+                <state relative-caret-position="779">
+                  <caret line="139" column="41" selection-start-line="139" selection-start-column="41" selection-end-line="139" selection-end-column="41" />
                   <folding>
                     <element signature="e#0#44#0" expanded="false" />
                   </folding>
@@ -40,14 +106,22 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="write.ejs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/write.ejs">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/routes/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
-                  <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-                  <folding>
-                    <marker date="1473387841801" expanded="true" signature="13212:13229" ph="..." />
-                  </folding>
+                <state relative-caret-position="76">
+                  <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="380">
+                  <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -55,8 +129,18 @@
           <file leaf-file-name="boardmodel.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/model/boardmodel.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="612">
-                  <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
+                <state relative-caret-position="589">
+                  <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="db.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/model/db.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="95">
+                  <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
                   <folding />
                 </state>
               </provider>
@@ -66,14 +150,39 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="write.ejs" pinned="false" current-in-tab="true">
+          <file leaf-file-name="write.ejs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/write.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="18">
-                  <caret line="109" column="49" selection-start-line="109" selection-start-column="49" selection-end-line="109" selection-end-column="49" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding>
-                    <marker date="1473387841801" expanded="true" signature="13212:13229" ph="..." />
+                    <marker date="1473576704231" expanded="true" signature="13631:13648" ph="..." />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="list.ejs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/list.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="190">
+                  <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+                  <folding>
+                    <marker date="1473590182754" expanded="false" signature="3220:3231" ph="..." />
+                    <marker date="1473590182754" expanded="false" signature="3283:3294" ph="..." />
+                    <marker date="1473590182754" expanded="false" signature="4032:4044" ph="..." />
+                    <marker date="1473590182754" expanded="false" signature="4096:4108" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="header.ejs" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/views/header.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="101">
+                  <caret line="51" column="4" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -99,21 +208,22 @@
         <option value="$PROJECT_DIR$/routes/writeform.js" />
         <option value="$PROJECT_DIR$/routes/write.js" />
         <option value="$PROJECT_DIR$/routes/list.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/model/boardmodel.js" />
-        <option value="$PROJECT_DIR$/views/board.ejs" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/index.ejs" />
-        <option value="$PROJECT_DIR$/views/writeform.ejs" />
-        <option value="$PROJECT_DIR$/db_setting.txt" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/model/db.js" />
+        <option value="$PROJECT_DIR$/views/writeform.ejs" />
+        <option value="$PROJECT_DIR$/views/writesetup.ejs" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
+        <option value="$PROJECT_DIR$/views/board.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/views/list.ejs" />
+        <option value="$PROJECT_DIR$/views/footer.ejs" />
+        <option value="$PROJECT_DIR$/model/db.js" />
+        <option value="$PROJECT_DIR$/views/write.ejs" />
+        <option value="$PROJECT_DIR$/model/boardmodel.js" />
         <option value="$PROJECT_DIR$/views/read.ejs" />
+        <option value="$PROJECT_DIR$/views/list.ejs" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/header.ejs" />
         <option value="$PROJECT_DIR$/routes/board.js" />
-        <option value="$PROJECT_DIR$/views/write.ejs" />
       </list>
     </option>
   </component>
@@ -129,10 +239,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="47" />
-    <option name="y" value="-4" />
-    <option name="width" value="1873" />
-    <option name="height" value="1084" />
+    <option name="x" value="60" />
+    <option name="y" value="-8" />
+    <option name="width" value="2508" />
+    <option name="height" value="1456" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -164,27 +274,27 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
+              <option name="myItemId" value="ass-web-mean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
+              <option name="myItemId" value="ass-web-mean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
+              <option name="myItemId" value="ass-web-mean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
+              <option name="myItemId" value="ass-web-mean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
+              <option name="myItemId" value="ass-web-mean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -194,11 +304,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
+              <option name="myItemId" value="ass-web-mean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
+              <option name="myItemId" value="ass-web-mean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -208,101 +318,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
+              <option name="myItemId" value="ass-web-mean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016722080" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
+              <option name="myItemId" value="ass-web-mean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -324,6 +344,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="SearchEverywhereHistoryKey" value="count&#9;FILE&#9;file://C:/Users/Kuvshinov/WebstormProjects/ass-web-mean/bower_components/materialize/js/character_counter.js&#10;gms.onthewifi&#9;null&#9;null&#10;localhost&#9;null&#9;null" />
   </component>
   <component name="RunManager" selected="Node.js.bin/www">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -411,58 +432,73 @@
       <workItem from="1471071044743" duration="6696000" />
       <workItem from="1471353553916" duration="23615000" />
       <workItem from="1471412231018" duration="5861000" />
-      <workItem from="1472015174658" duration="5396000" />
-      <workItem from="1472431575334" duration="2106000" />
-      <workItem from="1472983260055" duration="29000" />
-      <workItem from="1473018156741" duration="458000" />
-      <workItem from="1473049401810" duration="1747000" />
-      <workItem from="1473051319016" duration="2095000" />
-      <workItem from="1473056565235" duration="2460000" />
-      <workItem from="1473059354005" duration="1183000" />
-      <workItem from="1473062163860" duration="1763000" />
-      <workItem from="1473064009074" duration="1945000" />
-      <workItem from="1473066231816" duration="1941000" />
-      <workItem from="1473069358629" duration="1728000" />
-      <workItem from="1473072039555" duration="608000" />
-      <workItem from="1473159979725" duration="1061000" />
-      <workItem from="1473162860621" duration="543000" />
-      <workItem from="1473386802169" duration="1719000" />
-      <workItem from="1473573773387" duration="11000" />
+      <workItem from="1471681476102" duration="16964000" />
+      <workItem from="1471769072940" duration="2065000" />
+      <workItem from="1471837828556" duration="14689000" />
+      <workItem from="1471920495188" duration="1377000" />
+      <workItem from="1471948614653" duration="23525000" />
+      <workItem from="1471976978813" duration="196000" />
+      <workItem from="1472003042547" duration="2000" />
+      <workItem from="1472983689861" duration="28361000" />
+      <workItem from="1473574299868" duration="22227000" />
+      <workItem from="1473611298702" duration="659000" />
     </task>
-    <task id="LOCAL-00001" summary="#8">
-      <created>1473071025153</created>
+    <task id="LOCAL-00001" summary="#2&#10;MongoDB server can be accessible from the outside&#10; - host changed, localhost &gt; gms.onthewifi.com&#10; &#10;Change writesetup.ejs&#10; - added grp/func/input fields dynamically&#10; &#10;Re-Routing writesetup.ejs&#10; - refactored, /board/write &gt; /board/writesetup&#10; &#10;Routing writepost.ejs&#10; - can write homework post">
+      <created>1471853074251</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1473071025153</updated>
+      <updated>1471853074251</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="#3&#10;Change writesetup.ejs&#10; - added assignment posting form&#10; &#10; Integrated writesetup.ejs &amp; writepost.ejs to write.ejs&#10; - refactored, /board/writesetup &gt; /board/write.ejs">
+      <created>1471920663925</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1471920663925</updated>
+    </task>
+    <task id="LOCAL-00003" summary="#4&#10;Change write.ejs&#10; - Front-end writing form complete &#10;">
+      <created>1471968055959</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1471968055959</updated>
+    </task>
+    <task id="LOCAL-00004" summary="#5&#10;Changed read.ejs&#10; - Can upload attachment ( save path : /public/uploads/ )&#10; - Getting all document&#10;">
+      <created>1471977163444</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1471977163444</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113527000" />
+    <option name="totallyTimeSpent" value="196799000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="47" y="-4" width="1873" height="1084" extended-state="6" />
-    <editor active="false" />
+    <frame x="60" y="-8" width="2508" height="1456" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.088600755" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0659919" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23827533" sideWeight="0.49839616" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2386617" sideWeight="0.50160384" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936803" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959481" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14822547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35552195" sideWeight="0.49839616" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33511043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -477,43 +513,19 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="#8" />
-    <option name="LAST_COMMIT_MESSAGE" value="#8" />
+    <MESSAGE value="#2&#10;Change writesetup.ejs&#10; - Added grp/func/input fields dynamically&#10;Re-Routing writesetup.ejs&#10; - refactored /board/write &gt; /board/writesetup&#10;Routing writepost.ejs&#10; - can write homework post" />
+    <MESSAGE value="#2&#10;MongoDB server can be accessible from the outside&#10; - host changed, localhost &gt; gms.onthewifi.com&#10; &#10;Change writesetup.ejs&#10; - added grp/func/input fields dynamically&#10; &#10;Re-Routing writesetup.ejs&#10; - refactored, /board/write &gt; /board/writesetup&#10; &#10;Routing writepost.ejs&#10; - can write homework post" />
+    <MESSAGE value="#3&#10;Change writesetup.ejs&#10; - added assignment posting form&#10; &#10; Integrated writesetup.ejs &amp; writepost.ejs to write.ejs&#10; - refactored, /board/writesetup &gt; /board/write.ejs" />
+    <MESSAGE value="#4&#10;Change write.ejs&#10; - Front-end writing form complete &#10;" />
+    <MESSAGE value="#5&#10;Changed read.ejs&#10; - Can upload attachment ( save path : /public/uploads/ )&#10; - Getting all document&#10;" />
+    <MESSAGE value="#10" />
+    <option name="LAST_COMMIT_MESSAGE" value="#10" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/routes/board.js</url>
-          <line>102</line>
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="1" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/boardmodel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -545,7 +557,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/writeform.ejs" />
+    <entry file="file://$PROJECT_DIR$/views/write.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/read.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1134">
@@ -582,7 +600,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/writeform.js" />
-    <entry file="file://$PROJECT_DIR$/views/writeform.ejs" />
+    <entry file="file://$PROJECT_DIR$/views/write.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/users.js" />
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -602,13 +626,6 @@
     <entry file="file://$PROJECT_DIR$/routes/writeform.js" />
     <entry file="file://$PROJECT_DIR$/routes/list.js" />
     <entry file="file://$PROJECT_DIR$/routes/write.js" />
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/bootstrap-material-design/bower.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -651,10 +668,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -668,13 +685,6 @@
     <entry file="file://$PROJECT_DIR$/text.txt" />
     <entry file="file://$PROJECT_DIR$/public/uploads/rqbody.json" />
     <entry file="file://$PROJECT_DIR$/public/uploads/info.txt" />
-    <entry file="file://$PROJECT_DIR$/public/uploads/reqbody.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/bootstrap-material-design/bower_components/bootstrap/dist/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -682,100 +692,142 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/writeform.ejs" />
-    <entry file="file://$PROJECT_DIR$/views/board.ejs">
+    <entry file="file://$PROJECT_DIR$/node_modules/connect-form/support/connect/examples/vhost/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        <state relative-caret-position="76">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/views/writepost.ejs" />
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="804">
-          <caret line="54" column="23" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+        <state relative-caret-position="247">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
+    <entry file="file://$PROJECT_DIR$/bower_components/materialize/js/character_counter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/footer.ejs" />
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5chars.ent">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db_setting.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/boardmodel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
+        <state relative-caret-position="392">
+          <caret line="134" column="10" selection-start-line="134" selection-start-column="10" selection-end-line="134" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/header.ejs">
+    <entry file="file://$PROJECT_DIR$/public/uploads/reqbody.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="260" column="38" selection-start-line="260" selection-start-column="38" selection-end-line="260" selection-end-column="38" />
+        <state relative-caret-position="0">
+          <caret line="0" column="292" selection-start-line="0" selection-start-column="292" selection-end-line="0" selection-end-column="292" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/read.ejs">
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+        <state relative-caret-position="285">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/list.ejs">
+    <entry file="file://$PROJECT_DIR$/views/footer.ejs" />
+    <entry file="file://$PROJECT_DIR$/public/uploads/2016722080/2016722080허상훈-2016-09-05,04'35'14.png" />
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        <state relative-caret-position="285">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/write.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="109" column="49" selection-start-line="109" selection-start-column="49" selection-end-line="109" selection-end-column="49" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1473387841801" expanded="true" signature="13212:13229" ph="..." />
+            <marker date="1473576704231" expanded="true" signature="13631:13648" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/read.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/boardmodel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/board.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/list.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding>
+            <marker date="1473590182754" expanded="false" signature="3220:3231" ph="..." />
+            <marker date="1473590182754" expanded="false" signature="3283:3294" ph="..." />
+            <marker date="1473590182754" expanded="false" signature="4032:4044" ph="..." />
+            <marker date="1473590182754" expanded="false" signature="4096:4108" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/header.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="51" column="4" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/board.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="779">
+          <caret line="139" column="41" selection-start-line="139" selection-start-column="41" selection-end-line="139" selection-end-column="41" />
           <folding>
             <element signature="e#0#44#0" expanded="false" />
           </folding>

@@ -12,6 +12,7 @@ var BoardSchema = new mongoose.Schema({
     date: String,
     content: String,
     submit_form: String,
+    writer: String,
     attachment: String
     // "regdate": {
     //     "type": Date,
@@ -24,7 +25,8 @@ var UserSchema = new mongoose.Schema({
     pw: String,
     email: String,
     name: String,
-    hakbun: String
+    hakbun: Number,
+    perm: Boolean
 });
 
 BoardSchema.plugin(ai.plugin, {

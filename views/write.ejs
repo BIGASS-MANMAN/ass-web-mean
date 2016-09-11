@@ -44,8 +44,8 @@
 
                 <!--Classes-->
                 <div class="panel-body">
-                    <div class="form-group label-floating" id="dynamicInput_class">
-                        <div class="row pull-left center-block" style="margin-bottom: 5%;">
+                    <div class="form-group label-floating row" id="dynamicInput_class">
+                        <div class="pull-left center-block col-md-4" style="margin-bottom: 5%;">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="0" class="control-label">Class</label>
                                 <input type='text' name='classes[]' id="0" class='form-control' required>
@@ -84,7 +84,7 @@
                     <h3 class="panel-title">Test</h3>
                 </div>
                 <!--<div class="panel-body">-->
-                    <table class="table table-bordered table-striped table-hover form-group" style="margin-top: 0;">
+                    <table class="table table-bordered table-striped table-hover form-group table-responsive" style="margin-top: 0;">
                         <thead>
                         <tr>
                             <th>Group</th>
@@ -92,13 +92,14 @@
                             <th>Object</th>
                             <th>Helper</th>
                             <th>Input</th>
+                            <th>Output Type</th>
                             <th>Output</th>
                             <th>Test</th>
                             <th>Score</th>
                         </tr>
                         </thead>
                         <tbody id="dynamicInput_group">
-                        <tr id="1" class="row">
+                        <tr id="1">
                             <td class="col-md-2">
                                 <div class="input-group">
                                     <input type='text' name='groups[]' class='form-control' placeholder="Group 1" required>
@@ -134,7 +135,12 @@
                                 </span>
                                 </div>
                             </td>
-                            <td class="col-md-2">
+                            <td class="col-md-1">
+                                <div class="input-group">
+                                    <input type='text' name='outputs_type[]' class='form-control' placeholder="Output type 1" required>
+                                </div>
+                            </td>
+                            <td class="col-md-1">
                                 <div class="input-group">
                                     <input type='text' name='outputs[]' class='form-control' placeholder="Output 1" required>
                                 </div>
@@ -149,7 +155,7 @@
                             </td>
                             <td class="col-md-1">
                                 <div class="input-group">
-                                    <input type='text' name='score[]' class='form-control' placeholder="Score 1" required>
+                                    <input type='number' name='score[]' class='form-control' placeholder="Score 1" required>
                                 </div>
                             </td>
                         </tr>
@@ -265,10 +271,11 @@
         var idx_group = 1;
         var idx_func = 1;
         var idx_io =  1;
+        var idx_scr = idx_func;
 
         $('#add_class').click(function () {
             $('#dynamicInput_class').append(
-                    "<div id='"+idx_class+"' class='row pull-left center-block' style='margin-bottom: 5%'>" +
+                    "<div id='"+idx_class+"' class='pull-left center-block col-md-4' style='margin-bottom: 5%'>" +
                     "<div class='col-md-6 col-lg-6'>" +
                     "<input type='text' id='"+idx_class+"' placeholder='Class' name='classes[]' class='form-control'></div>" +
                     "<div class='col-md-6 col-lg-6'>" +
@@ -281,10 +288,10 @@
             idx_group++;
             idx_func = 1;
             idx_io = 1;
-            idx_scr = 1;
+            idx_scr = idx_func;
 
-            var replacements = {"%GROUP%":idx_group,"%FUNC%":idx_func,"%IO%":idx_io, "%SCR":idx_scr};
-            var group = "<tr> <td> <div class='input-group'> <input type='text' name='groups[]' class='form-control' placeholder='Group %GROUP%'> </div> </td> <td> <div class='input-group'> <input type='text' name='functions[]' class='form-control' placeholder='Function %FUNC%'> <span class='input-group-btn'> <button type='button' class='btn btn-fab btn-fab-mini' id='add_func'> <i class='material-icons'>add</i> </button> </span> </div> </td> <td> <div class='input-group'> <input type='text' name='objects[]' class='form-control' placeholder='Object'> </div> </td> <td> <div class='input-group'> <input type='text' name='helpers[]' class='form-control' placeholder='Helper'> </div> </td> <td> <div class='input-group' id='mod'> <input type='text' name='inputs[]' class='form-control' placeholder='Input %IO%' disabled> <span class='input-group-btn'> <button type='button' class='btn btn-fab btn-fab-mini' id='add_input' disabled> <i class='material-icons'>add</i> </button> </span> </div> </td> <td> <div class='input-group'> <input type='text' name='outputs[]' class='form-control'  placeholder='Output %IO%'> </div> </td> <td> <div class='input-group'> <select class='selectpicker form-control' name='tests[]'> <option value='O' data-icon='glyphicon-ok'></option> <option value='X' data-icon='glyphicon-remove'></option> </select> </div> </td> <td> <div class='input-group'> <input type='text' name='score[]' class='form-control' placeholder='Score %SCR%' required> </div> </td> </tr>";
+            var replacements = {"%GROUP%":idx_group,"%FUNC%":idx_func, "%SCR%":idx_scr, "%IO%":idx_io};
+            var group = "<tr> <td> <div class='input-group'> <input type='text' name='groups[]' class='form-control' placeholder='Group %GROUP%'> </div> </td> <td> <div class='input-group'> <input type='text' name='functions[]' class='form-control' placeholder='Function %FUNC%'> <span class='input-group-btn'> <button type='button' class='btn btn-fab btn-fab-mini' id='add_func'> <i class='material-icons'>add</i> </button> </span> </div> </td> <td> <div class='input-group'> <input type='text' name='objects[]' class='form-control' placeholder='Object'> </div> </td> <td> <div class='input-group'> <input type='text' name='helpers[]' class='form-control' placeholder='Helper'> </div> </td> <td> <div class='input-group' id='mod'> <input type='text' name='inputs[]' class='form-control' placeholder='Input %IO%' disabled> <span class='input-group-btn'> <button type='button' class='btn btn-fab btn-fab-mini' id='add_input' disabled> <i class='material-icons'>add</i> </button> </span> </div> </td><td> <div class='input-group'> <input type='text' name='outputs_type[]' class='form-control'  placeholder='Output type %IO%'> </div> </td> <td> <div class='input-group'> <input type='text' name='outputs[]' class='form-control'  placeholder='Output %IO%'> </div> </td> <td> <div class='input-group'> <select class='selectpicker form-control' name='tests[]'> <option value='O' data-icon='glyphicon-ok'></option> <option value='X' data-icon='glyphicon-remove'></option> </select> </div> </td> <td> <div class='input-group'> <input type='text' name='score[]' class='form-control' placeholder='Score %SCR%' required> </div> </td> </tr>";
             group = group.replace(/%\w+%/g, function(all) {
                 return replacements[all] || all;
             });
@@ -295,11 +302,11 @@
 
         $(document).on('click', '#add_func', function (e) {
             idx_func++;
+            idx_scr = idx_func;
             idx_io = 1;
-            idx_scr = 1;
 
-            var replacements = {"%FUNC%":idx_func,"%IO%":idx_io};
-            var func = "<tr> <td> <div class='input-group'> </div> </td> <td> <div class='input-group'> <input type='text'	name='functions[]' class='form-control' placeholder='Function %FUNC%'> </div> </td> <td> <div class='input-group'> <input type='text' name='objects[]' class='form-control' placeholder='Object'> </div> </td> <td> <div class='input-group'> <input type='text' name='helpers[]' class='form-control' placeholder='Helper'> </div> </td> <td> <div class='input-group' id='mod'> <input type='text' name='inputs[]' class='form-control' placeholder='Input %IO%' disabled> <span class='input-group-btn'> <button type='button' class='btn btn-fab btn-fab-mini' id='add_input' disabled> <i class='material-icons'>add</i> </button> </span> </div> </td> <td> <div class='input-group'> <input type='text' name='outputs[]' class='form-control' placeholder='Output %IO%'> </div> </td> <td> <div class='input-group'> <select class='selectpicker form-control' name='tests[]'> <option value='O' data-icon='glyphicon-ok'></option> <option value='X' data-icon='glyphicon-remove'></option> </select> </div> </td> <td> <div class='input-group'> <input type='text' name='score[]' class='form-control' placeholder='Score %SCR%' required> </div> </td> </tr>";
+            var replacements = {"%FUNC%":idx_func,"%IO%":idx_io, "%SCR%":idx_scr};
+            var func = "<tr> <td> <div class='input-group'> </div> </td> <td> <div class='input-group'> <input type='text'	name='functions[]' class='form-control' placeholder='Function %FUNC%'> </div> </td> <td> <div class='input-group'> <input type='text' name='objects[]' class='form-control' placeholder='Object'> </div> </td> <td> <div class='input-group'> <input type='text' name='helpers[]' class='form-control' placeholder='Helper'> </div> </td> <td> <div class='input-group' id='mod'> <input type='text' name='inputs[]' class='form-control' placeholder='Input %IO%' disabled> <span class='input-group-btn'> <button type='button' class='btn btn-fab btn-fab-mini' id='add_input' disabled> <i class='material-icons'>add</i> </button> </span> </div> </td><td> <div class='input-group'> <input type='text' name='outputs_type[]' class='form-control'  placeholder='Output type %IO%'> </div> </td>  <td> <div class='input-group'> <input type='text' name='outputs[]' class='form-control' placeholder='Output %IO%'> </div> </td> <td> <div class='input-group'> <select class='selectpicker form-control' name='tests[]'> <option value='O' data-icon='glyphicon-ok'></option> <option value='X' data-icon='glyphicon-remove'></option> </select> </div> </td> <td> <div class='input-group'> <input type='text' name='score[]' class='form-control' placeholder='Score %SCR%' required> </div> </td> </tr>";
             func = func.replace(/%\w+%/g, function(all) {
                 return replacements[all] || all;
             });
@@ -318,7 +325,8 @@
             idx_io++;
 
             var inputTDtag = $(this).parent().parent().parent();
-            var outputTDtag = inputTDtag.next();
+            var ioTypeTDtag = inputTDtag.next();
+            var outputTDtag = ioTypeTDtag.next();
             var testTDtag = outputTDtag.next();
 
             var replacements = {"%FUNC%":idx_func,"%IO%":idx_io};
@@ -331,10 +339,14 @@
             outputTag = outputTag.replace(/%\w+%/g, function(all) {
                 return replacements[all] || all;
             });
-
+            var ioTypeTag = "<div class='input-group'> <input type='text' name='outputs_type[]' class='form-control'  placeholder='Output type %IO%'> </div>";
+            ioTypeTag = ioTypeTag.replace(/%Ww+%/g, function (all) {
+                return replacements[all] || all;
+            })
 
             inputTDtag.append(inputTag);
             outputTDtag.append(outputTag);
+            ioTypeTDtag.append(ioTypeTag);
             testTDtag.append("<div class='input-group'><select class='selectpicker form-control' name='tests[]'> <option value='O' data-icon='glyphicon-ok'></option> <option value='X' data-icon='glyphicon-remove'></option> </select> </div>");
 
             $('.selectpicker').selectpicker('refresh');     // TD:Test select option init.
