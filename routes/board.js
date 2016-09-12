@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 const session = require('express-session');
 
-const fs = require('fs-extra');
+const fs = require('fs');
 const path = require('path');
 const bodyparser = require('body-parser');
 const multer = require('multer');
@@ -13,7 +13,7 @@ const Sugar = require('sugar');
 // const multiparty = require('multiparty');
 const mkdirp = require('mkdirp');
 const cp = require('child_process');
-const spawn = require('child_process').spawn;
+const spawn = cp.spawn;
 
 
 router.use(session({
@@ -38,9 +38,9 @@ router.post('/upload/:idx/:subj', function (req, res, next) {
     console.log(req.session);
     console.log(req.params.idx);
 
-    // const uploadPath = __dirname + '/../public/uploads/' + req.params.idx + "_" + req.params.subj+ '/' + req.session.hakbun + "/";
-    const uploadPath = __dirname + '/../../Auto_Scoring_System/Assignment/ASS' + req.params.idx + "_" + req.params.subj+ '/' + req.session.hakbun + "/";
-    mkdirp.sync(uploadPath);
+    const uploadPath = __dirname + '/../../Auto_Scoring_System/Assignment/ASS' + req.params.idx + "_" + req.params.subj+ '/' + req.session.id + '/';
+    // const uploadPath = __dirname + '/../../Auto_Scoring_System/Assignment/ASS' + req.params.idx + "_" + req.params.subj+ '/' + req.session.id + '/';
+    mkdirp.sync(uploadPath + '/Result');
 
     var storage = multer.diskStorage({
         destination: function (req, file, cb) {
@@ -64,29 +64,19 @@ router.post('/upload/:idx/:subj', function (req, res, next) {
         }
         console.log("업로드 완료");
 
-        // child_process.spawn 사용
-        // const ls = spawn('ls', ['-lh', '/usr']);
-        //
-        // ls.stdout.on('data', (data) => {
-        //     console.log(`stdout: ${data}`);
-        // });
-        //
-        // ls.stderr.on('data', (data) => {
-        //     console.log(`stderr: ${data}`);
-        // });
-        //
-        // ls.on('close', (code) => {
-        //     console.log(`child process exited with code ${code}`);
-        // });
+        // child_process.spawn : 쉘 실행.
+        const sh = spawn('./ASS.sh', ['ASS1 ASS1Test 2012722060_김영재', uploadPath]);
 
-        // child_process.exec 사용
-        cp.exec('ls -la', function (err, stdout, stderr) {
-            if(err){
-                console.error('child_process 에러', err);
-                return;
-            }
-            // 터미널 콘솔에 결과 출력.
-            console.log(stdout);
+        sh.stdout.on('data', (data) => {
+            console.log(`stdout: ${data}`);
+        });
+
+        sh.stderr.on('data', (data) => {
+            console.log(`stderr: ${data}`);
+        });
+
+        sh.on('close', (code) => {
+            console.log(`child process exited with code ${code}`);
         });
     });
 
