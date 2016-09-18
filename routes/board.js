@@ -65,7 +65,11 @@ router.post('/upload/:idx/:subj', function (req, res, next) {
         }
         console.log("업로드 완료");
 
-        shelljs.exec('/usr/local/Auto_Scoring_System/src/ASS.sh ASS1 ASS1Test 2012722060_김영재');
+        shelljs.exec('/usr/local/Auto_Scoring_System/src/ASS.sh ASS1 ASS1Test 2012722060_김영재', function (code, stdout, stderr) {
+            console.log("Exit code : ", code);
+            console.log("Output : ", stdout);
+            console.log("StdErr : ", stderr);
+        });
 
 
         // child_process.spawn : 쉘 실행.
