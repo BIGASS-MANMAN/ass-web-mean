@@ -14,6 +14,7 @@ const Sugar = require('sugar');
 const mkdirp = require('mkdirp');
 const cp = require('child_process');
 const spawn = cp.spawn;
+const shelljs = require('shelljs');
 
 
 router.use(session({
@@ -38,7 +39,7 @@ router.post('/upload/:idx/:subj', function (req, res, next) {
     console.log(req.session);
     console.log(req.params.idx);
 
-    const uploadPath = __dirname + '/../../Auto_Scoring_System/Assignment/ASS' + req.params.idx + "_" + req.params.subj+ '/' + req.session.id + '/';
+    const uploadPath = __dirname + '/../../Auto_Scoring_System/Assignment/' + req.params.subj+ '/' + req.session.username + '/';
     // const uploadPath = __dirname + '/../../Auto_Scoring_System/Assignment/ASS' + req.params.idx + "_" + req.params.subj+ '/' + req.session.id + '/';
     mkdirp.sync(uploadPath + '/Result');
 
@@ -64,20 +65,23 @@ router.post('/upload/:idx/:subj', function (req, res, next) {
         }
         console.log("업로드 완료");
 
+        shelljs.exec('/usr/local/Auto_Scoring_System/src/ASS.sh ASS1 ASS1Test 2012722060_김영재');
+
+
         // child_process.spawn : 쉘 실행.
-        const sh = spawn('./ASS.sh', ['ASS1 ASS1Test 2012722060_김영재', uploadPath]);
+//        const sh = spawn('./ASS.sh', ['ASS1 ASS1Test 2012722060_김영재', '/usr/local/Auto_Scoring_System/src/'], );
 
-        sh.stdout.on('data', (data) => {
-            console.log(`stdout: ${data}`);
-        });
+//        sh.stdout.on('data', (data) => {
+//            console.log(`stdout: ${data}`);
+//        });
 
-        sh.stderr.on('data', (data) => {
-            console.log(`stderr: ${data}`);
-        });
+//        sh.stderr.on('data', (data) => {
+//            console.log(`stderr: ${data}`);
+//        });
 
-        sh.on('close', (code) => {
-            console.log(`child process exited with code ${code}`);
-        });
+//        sh.on('close', (code) => {
+//            console.log(`child process exited with code ${code}`);
+//        });
     });
 
     res.redirect('/board/list');
