@@ -21,16 +21,45 @@
                 </tr>
                 <tr class="row">
                     <th class="col-md-2">첨부파일</th>
-                    <td class="col-md-10"><%=data.attachment%></td>
+                    <td class="col-md-10">
+                        <% if(data.attachment) {%>
+                        <a href="/board/download/<%=data.idx%>"><%=data.attachment%></a>
+                        <% }else if(sess.perm){ %>
+                        <form action="/board/upload/<%=data.idx%>/<%=data.title%>" method="post" enctype="multipart/form-data">
+                            <div class="form-group form-group-lg label-floating">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="material-icons">attachment</i> </span>
+                                    <label for="attachment" class="control-label">첨부파일</label>
+                                    <input type='file' name='attachment' id="attachment" class="form-control" required>
+
+                                    <input type="text" readonly="" class="form-control">
+                                    <span class="input-group-btn input-group-sm">
+                                      <button type="button" class="btn btn-fab btn-fab-mini btn-danger">
+                                        <i class="material-icons">attach_file</i>
+                                      </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-raised btn-block btn-inverse">업로드</button>
+                        </form>
+                        <% } %>
+                    </td>
                 </tr>
                 <tr class="row">
                     <th class="col-md-2">작성자</th>
                     <td class="col-md-10"><%=data.writer%></td>
                 </tr>
+                <% if(!sess.perm) {%>
                 <tr class="row">
-                    <th class="col-md-2">제출</th>
+                    <th class="col-md-2">
+                        <%if(submit){%>
+                            [제출 완료]
+                        <%}else{%>
+                            [미제출]
+                        <%}%>
+                    </th>
                     <td class="col-md-10">
-                        <form action="/board/upload/<%=data.idx%>/<%=data.subject%>" method="post" enctype="multipart/form-data">
+                        <form action="/board/upload/<%=data.idx%>/<%=data.title%>" method="post" enctype="multipart/form-data">
                             <div class="form-group form-group-lg label-floating">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="material-icons">attachment</i> </span>
@@ -49,6 +78,7 @@
                         </form>
                     </td>
                 </tr>
+                <% } %>
             </table>
             <a href="/board/list" class="btn btn-lg btn-info btn-raised">목록</a>
         </div>

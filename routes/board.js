@@ -10,11 +10,10 @@ const path = require('path');
 const bodyparser = require('body-parser');
 const multer = require('multer');
 const Sugar = require('sugar');
-// const multiparty = require('multiparty');
 const mkdirp = require('mkdirp');
-const cp = require('child_process');
-const spawn = cp.spawn;
-const shelljs = require('shelljs');
+// const cp = require('child_process');
+// const spawn = cp.spawn;
+// const exec = require('sync-exec');
 
 
 router.use(session({
@@ -23,72 +22,147 @@ router.use(session({
     saveUninitialized: true
 }));
 
-var db = require('../model/db');
+const db = require('../model/db');
 require('../model/boardmodel');
-var BoardModel = db.model('Board');
-var UserModel = db.model('User');
+const BoardModel = db.model('Board');
+const UserModel = db.model('User');
+const UploadModel = db.model('Upload');
 
 router.use(bodyparser.urlencoded({extended: false}));
 
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
     // res.render('board', { title: '게시판' });
     res.redirect('/board/list');
 });
 
-router.post('/upload/:idx/:subj', function (req, res, next) {
+router.get('/download/:idx', function (req, res, next) {
+    console.log(req.session);
+    if(!req.session.username)
+        res.send('<script>alert("로그인이 필요합니다."); location.href="/board/list/1"</script>');
+    // res.redirect('/board/list');
+    else {
+        BoardModel.findOne({idx: req.params.idx}, function (e, result) {
+            if (e) {
+                console.error('err', e);
+                return handleError(e);
+            }
+
+            if (result != null) {
+                var downloadPath = __dirname + '/../../Auto_Scoring_System/info/' + result.title + '/' + result.attachment;
+
+                if (downloadPath != '') {
+                    res.download(downloadPath);
+                } else {
+                    res.render('error', {
+                        message: err.message,
+                        error: err
+                    });
+                }
+            } else {
+                console.log("글이 없어양");
+            }
+        });
+    }
+});
+
+router.post('/upload/:idx/:title', function (req, res, next) {
     console.log(req.session);
     console.log(req.params.idx);
 
-    const uploadPath = __dirname + '/../../Auto_Scoring_System/Assignment/' + req.params.subj+ '/' + req.session.username + '/';
-    // const uploadPath = __dirname + '/../../Auto_Scoring_System/Assignment/ASS' + req.params.idx + "_" + req.params.subj+ '/' + req.session.id + '/';
-    mkdirp.sync(uploadPath + '/Result');
+    if(req.session.perm){   // 조교가 업로드했을 때.
+        var uploadPath = __dirname + '/../../Auto_Scoring_System/info/' + req.params.title + '/';
+        var filename = '';
 
-    var storage = multer.diskStorage({
-        destination: function (req, file, cb) {
-            cb(null, uploadPath);
+        mkdirp.sync(uploadPath);
 
-            // mkdirp(uploadPath, err => cb(err, newDir));
-        },
-        filename: function (req, file, cb) {
-            var date = Sugar.Date.format(new Date(),  "%Y-%m-%d,%H'%M'%S");
-            // cb(null, req.session.hakbun + "_" + req.session.name +'-' + date + ".png");
-            cb(null, req.session.hakbun + "_" + req.session.name + ".tar.gz");
-        }
-    });
-
-    var upload = multer({storage: storage}).single('attachment');
-
-    upload(req, res, function (e) {
-        if(e){
-            console.error('err', e);
-            return;
-        }
-        console.log("업로드 완료");
-
-        shelljs.exec('/usr/local/Auto_Scoring_System/src/ASS.sh ASS1 ASS1Test 2012722060_김영재', function (code, stdout, stderr) {
-            console.log("Exit code : ", code);
-            console.log("Output : ", stdout);
-            console.log("StdErr : ", stderr);
+        var storage = multer.diskStorage({
+            destination: function (req, file, cb) {
+                cb(null, uploadPath);
+            },
+            filename: function (req, file, cb) {
+                filename = file.originalname;
+                cb(null, file.originalname);
+            }
         });
 
+        var upload = multer({storage: storage}).single('attachment');
 
-        // child_process.spawn : 쉘 실행.
-//        const sh = spawn('./ASS.sh', ['ASS1 ASS1Test 2012722060_김영재', '/usr/local/Auto_Scoring_System/src/'], );
+        upload(req, res, function (e) {
+            if (e) {
+                console.error('err', e);
+                return handleError(e);
+            } else {
+                console.log("업로드 완료");
 
-//        sh.stdout.on('data', (data) => {
-//            console.log(`stdout: ${data}`);
-//        });
+                BoardModel.update({idx: req.params.idx}, {$set:{attachment:filename}}, function (e, result) {
+                    if (e) {
+                        console.error('err', e);
+                        //return handleError(e);
+                    }
+                });
+            }
+        });
+    } else if (!req.session.perm){
+        var uploadPath = __dirname + '/../../Auto_Scoring_System/Assignment/' + req.params.title + '/' + req.session.username + '/';
 
-//        sh.stderr.on('data', (data) => {
-//            console.log(`stderr: ${data}`);
-//        });
+        mkdirp.sync(uploadPath + '/Result');
 
-//        sh.on('close', (code) => {
-//            console.log(`child process exited with code ${code}`);
-//        });
-    });
+        var storage = multer.diskStorage({
+            destination: function (req, file, cb) {
+                cb(null, uploadPath);
+
+                // mkdirp(uploadPath, err => cb(err, newDir));
+            },
+            filename: function (req, file, cb) {
+                // var date = Sugar.Date.format(new Date(),  "%Y-%m-%d,%H'%M'%S");
+                cb(null, req.session.username + ".tar.gz");
+            }
+        });
+
+        var upload = multer({storage: storage}).single('attachment');
+
+        upload(req, res, function (e) {
+            if (e) {
+                console.error('err', e);
+                return handleError(e);
+            } else {
+                console.log("업로드 완료");
+
+                BoardModel.findOne({idx: req.params.idx}, function (e, result) {
+                    if (e) {
+                        console.error('err', e);
+                        return handleError(e);
+                    }
+
+                    if (result != null) {
+                        shelljs.exec('/usr/local/Auto_Scoring_System/src/ASS.sh' + " " + result.title + " " + result.unittest + " " + req.session.username, function (code, stdout, stderr) {
+                            console.log("Exit code : ", code);
+                            console.log("Output : ", stdout);
+                            console.log("StdErr : ", stderr);
+                        });
+
+                        var newUpload = new UploadModel({
+                            idx: req.params.idx,
+                            uploader: req.session.username,
+                            regdate: Sugar.Date.format(new Date(), "%Y.%m.%d-%H:%M:%S")
+                        });
+                        newUpload.save(function (e, data) {
+                            if (e) {
+                                console.error('err', e);
+                                return handleError(e);
+                            }
+                            console.log("과제 업로드 결과 디비 저장");
+                        });
+                    } else {
+                        console.log("글이 없어양");
+                    }
+                });
+            }
+        });
+    }
 
     res.redirect('/board/list');
+    //res.redirect(req.session.backURL);
 });
 
 router.post('/signup', function (req, res, next) {
@@ -185,7 +259,7 @@ router.get('/write', function(req, res, next) {
 router.post('/write', function (req, res, next) {
     console.log(req.body);
     console.log(req.session);
-
+/*
     var filename = __dirname + "/../public/uploads/" + "reqbody.json";
 
     fs.writeFile(filename, JSON.stringify(req.body), 'utf8', function (e) {
@@ -195,13 +269,12 @@ router.post('/write', function (req, res, next) {
         else
             console.log(filename + " 파일 쓰기 성공");
     });
-
-    // Setup make file.
-    var title = req.body.title;
-    var unittest = req.body.unittest;
+*/
 
     // DB model create & save.
     var board = new BoardModel({
+        title: req.body.title,
+        unittest: req.body.unittest,
         subject: req.body.subject,
         date: req.body.date,
         content: req.body.content,
@@ -281,12 +354,24 @@ router.get('/read/:page/:idx', function (req, res, next) {
         var page = req.params.page;
         var idx = req.params.idx;
 
-        BoardModel.update({"idx": idx}, function (err, doc) {
-            if (err) console.error('err', err);
+        BoardModel.findOne({"idx": idx}, function (err, docs) {
+            var datas = {};
 
-            BoardModel.findOne({"idx": idx}, function (err, docs) {
-                if (err) console.error('err', err);
-                res.render('read', {"title": "글 읽기", "data": docs, "page": page, "sess": req.session, "idx": idx});
+            if (err){
+                console.error('err', err);
+                return handleError(err);
+            }
+
+            UploadModel.findOne({'idx': idx, 'uploader':req.session.username}, function (e, result) {
+                if(result != null) {
+                    datas = {"title": "글 읽기", "data": docs, "page": page, "sess": req.session, "idx": idx, 'submit': true};
+                    console.log('제출');
+                } else {
+                    datas = {"title": "글 읽기", "data": docs, "page": page, "sess": req.session, "idx": idx, 'submit': false};
+                    console.log('미제출');
+                }
+
+                res.render('read', datas);
             });
         });
     }

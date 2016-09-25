@@ -45,7 +45,7 @@
                 <!--Classes-->
                 <div class="panel-body">
                     <div class="form-group label-floating row" id="dynamicInput_class">
-                        <div class="pull-left center-block col-md-4" style="margin-bottom: 5%;">
+                        <div class="pull-left center-block col-md-4 col-sm-6 input-group" style="margin-bottom: 5%;">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="0" class="control-label">Class</label>
                                 <input type='text' name='classes[]' id="0" class='form-control' required>
@@ -86,79 +86,79 @@
                 <!--<div class="panel-body">-->
                     <table class="table table-bordered table-striped table-hover form-group table-responsive" style="margin-top: 0;">
                         <thead>
-                        <tr>
-                            <th>Group</th>
-                            <th>Function</th>
-                            <th>Object</th>
-                            <th>Helper</th>
-                            <th>Input</th>
-                            <th>Output Type</th>
-                            <th>Output</th>
-                            <th>Test</th>
-                            <th>Score</th>
-                        </tr>
+                            <tr>
+                                <th>Group</th>
+                                <th>Function</th>
+                                <th>Object</th>
+                                <th>Helper</th>
+                                <th>Input</th>
+                                <th>Output Type</th>
+                                <th>Output</th>
+                                <th>Test</th>
+                                <th>Score</th>
+                            </tr>
                         </thead>
                         <tbody id="dynamicInput_group">
-                        <tr id="1">
-                            <td class="col-md-2">
-                                <div class="input-group">
-                                    <input type='text' name='groups[]' class='form-control' placeholder="Group 1" required>
-                                </div>
-                            </td>
-                            <td class="col-md-2">
-                                <div class="input-group">
-                                    <input type='text'	name='functions[]' class='form-control' placeholder="Function 1" required>
-                                    <span class="input-group-btn">
-                                    <button type="button" class="btn btn-fab btn-fab-mini" id="add_func">
-                                        <i class="material-icons">add</i>
-                                    </button>
-                                </span>
-                                </div>
-                            </td>
-                            <td class="col-md-1">
-                                <div class="input-group">
-                                    <input type='text' name='objects[]' class='form-control' placeholder="Object" required>
-                                </div>
-                            </td>
-                            <td class="col-md-1">
-                                <div class="input-group" id="mod">
-                                    <input type='text' name='helpers[]' class='form-control' placeholder="Helper" disabled>
-                                </div>
-                            </td>
-                            <td class="col-md-2">
-                                <div class="input-group" id="mod">
-                                    <input type='text' name='inputs[]' class='form-control' placeholder="Input 1" disabled>
-                                    <span class="input-group-btn">
-                                    <button type="button" class="btn btn-fab btn-fab-mini" id="add_input" disabled>
-                                        <i class="material-icons">add</i>
-                                    </button>
-                                </span>
-                                </div>
-                            </td>
-                            <td class="col-md-1">
-                                <div class="input-group">
-                                    <input type='text' name='outputs_type[]' class='form-control' placeholder="Output type 1" required>
-                                </div>
-                            </td>
-                            <td class="col-md-1">
-                                <div class="input-group">
-                                    <input type='text' name='outputs[]' class='form-control' placeholder="Output 1" required>
-                                </div>
-                            </td>
-                            <td class="col-md-1">
-                                <div class="input-group">
-                                    <select class="selectpicker form-control" name="tests[]" required>
-                                        <option value="O" data-icon='glyphicon-ok'></option>
-                                        <option value="X" data-icon='glyphicon-remove'></option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td class="col-md-1">
-                                <div class="input-group">
-                                    <input type='number' name='score[]' class='form-control' placeholder="Score 1" required>
-                                </div>
-                            </td>
-                        </tr>
+                            <tr id="1">
+                                <td class="col-md-2">
+                                    <div class="input-group">
+                                        <input type='text' name='groups[]' class='form-control' placeholder="Group 1" required>
+                                    </div>
+                                </td>
+                                <td class="col-md-2">
+                                    <div class="input-group">
+                                        <input type='text'	name='functions[]' class='form-control' placeholder="Function 1" required>
+                                        <span class="input-group-btn">
+                                        <button type="button" class="btn btn-fab btn-fab-mini" id="add_func">
+                                            <i class="material-icons">add</i>
+                                        </button>
+                                    </span>
+                                    </div>
+                                </td>
+                                <td class="col-md-1">
+                                    <div class="input-group">
+                                        <input type='text' name='objects[]' class='form-control' placeholder="Object" required>
+                                    </div>
+                                </td>
+                                <td class="col-md-1">
+                                    <div class="input-group" id="mod">
+                                        <input type='text' name='helpers[]' class='form-control' placeholder="Helper" disabled>
+                                    </div>
+                                </td>
+                                <td class="col-md-2">
+                                    <div class="input-group" id="mod">
+                                        <input type='text' name='inputs[]' class='form-control' placeholder="Input 1" disabled>
+                                        <span class="input-group-btn">
+                                        <button type="button" class="btn btn-fab btn-fab-mini" id="add_input" disabled>
+                                            <i class="material-icons">add</i>
+                                        </button>
+                                    </span>
+                                    </div>
+                                </td>
+                                <td class="col-md-1">
+                                    <div class="input-group">
+                                        <input type='text' name='outputs_type[]' class='form-control' placeholder="Output type 1" required>
+                                    </div>
+                                </td>
+                                <td class="col-md-1">
+                                    <div class="input-group">
+                                        <input type='text' name='outputs[]' class='form-control' placeholder="Output 1" required>
+                                    </div>
+                                </td>
+                                <td class="col-md-1">
+                                    <div class="input-group">
+                                        <select class="selectpicker form-control" name="tests[]" required>
+                                            <option value="O" data-icon='glyphicon-ok'></option>
+                                            <option value="X" data-icon='glyphicon-remove'></option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td class="col-md-1">
+                                    <div class="input-group">
+                                        <input type='number' name='score[]' class='form-control' placeholder="Score 1" required>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -275,10 +275,10 @@
 
         $('#add_class').click(function () {
             $('#dynamicInput_class').append(
-                    "<div id='"+idx_class+"' class='pull-left center-block col-md-4' style='margin-bottom: 5%'>" +
-                    "<div class='col-md-6 col-lg-6'>" +
+                    "<div id='"+idx_class+"' class='pull-left center-block col-md-4 col-sm-6' style='margin-bottom: 5%'>" +
+                    "<div class='col-md-6 col-lg-6 col-sm-6'>" +
                     "<input type='text' id='"+idx_class+"' placeholder='Class' name='classes[]' class='form-control'></div>" +
-                    "<div class='col-md-6 col-lg-6'>" +
+                    "<div class='col-md-6 col-lg-6 col-sm-6'>" +
                     "<button type='button' id='"+idx_class+"' class='btn btn-danger btn-fab btn_remove'><i class='material-icons'>remove</i> </button></div></div>"
             );
             idx_class++;

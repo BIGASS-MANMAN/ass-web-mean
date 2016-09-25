@@ -4,7 +4,7 @@
 var mongoose = require('mongoose');
 // var uri = 'mongodb://gms.onthewifi.com/board';
 // var uri = 'mongodb://datasci.kw.ac.kr:65456/board';
-var uri = 'mongodb://localhost/board';
+var uri = 'mongodb://localhost/ass';
 var options = {
     "server": {
         "poolSize": 100
