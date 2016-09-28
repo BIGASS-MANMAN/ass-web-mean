@@ -22,7 +22,7 @@
                         <% if(login == null){ %>
                         <td><h5><a href="#" data-toggle="modal" data-target="#member_login"><%= item.subject %></a></h5></td>
                         <% } else { %>
-                        <td><h5><a href="/board/read/<%= page %>/<%= item.idx %>"><%= item.subject %></a></h5></td>
+                        <td><h5><a href="/board/read/<%= item.idx %>"><%= item.subject %></a></h5></td>
                         <% } %>
                         <td><h5><%= item.date %></h5></td>
                     </tr>

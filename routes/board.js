@@ -11,9 +11,13 @@ const bodyparser = require('body-parser');
 const multer = require('multer');
 const Sugar = require('sugar');
 const mkdirp = require('mkdirp');
-// const cp = require('child_process');
-// const spawn = cp.spawn;
-// const exec = require('sync-exec');
+const shelljs = require('shelljs');
+
+const db = require('../model/db');
+require('../model/boardmodel');
+const BoardModel = db.model('Board');
+const UserModel = db.model('User');
+const UploadModel = db.model('Upload');
 
 
 router.use(session({
@@ -22,24 +26,34 @@ router.use(session({
     saveUninitialized: true
 }));
 
-const db = require('../model/db');
-require('../model/boardmodel');
-const BoardModel = db.model('Board');
-const UserModel = db.model('User');
-const UploadModel = db.model('Upload');
-
 router.use(bodyparser.urlencoded({extended: false}));
 
 router.get('/', function(req, res) {
     // res.render('board', { title: '게시판' });
     res.redirect('/board/list');
 });
+;
+router.get('/member', function (req, res, next) {
+    if(req.session.perm) {
+        UserModel.find({}, function (e, result) {
+            var datas = {
+                "title" : "회원 목록",
+                "data" : result,
+                "sess" : req.session
+            };
+
+            res.render('member', datas);
+        });
+    }
+    else{
+        res.send('<script>alert("권한이 없습니다."); location.href="/board/list"</script>');
+    }
+});
 
 router.get('/download/:idx', function (req, res, next) {
     console.log(req.session);
     if(!req.session.username)
-        res.send('<script>alert("로그인이 필요합니다."); location.href="/board/list/1"</script>');
-    // res.redirect('/board/list');
+        res.send('<script>alert("로그인이 필요합니다."); location.href="/board/list"</script>');
     else {
         BoardModel.findOne({idx: req.params.idx}, function (e, result) {
             if (e) {
@@ -53,13 +67,11 @@ router.get('/download/:idx', function (req, res, next) {
                 if (downloadPath != '') {
                     res.download(downloadPath);
                 } else {
-                    res.render('error', {
-                        message: err.message,
-                        error: err
-                    });
+                    res.redirect('/board/list');
                 }
             } else {
                 console.log("글이 없어양");
+                res.redirect('/board/list');
             }
         });
     }
@@ -97,7 +109,7 @@ router.post('/upload/:idx/:title', function (req, res, next) {
                 BoardModel.update({idx: req.params.idx}, {$set:{attachment:filename}}, function (e, result) {
                     if (e) {
                         console.error('err', e);
-                        //return handleError(e);
+                        return handleError(e);
                     }
                 });
             }
@@ -110,11 +122,8 @@ router.post('/upload/:idx/:title', function (req, res, next) {
         var storage = multer.diskStorage({
             destination: function (req, file, cb) {
                 cb(null, uploadPath);
-
-                // mkdirp(uploadPath, err => cb(err, newDir));
             },
             filename: function (req, file, cb) {
-                // var date = Sugar.Date.format(new Date(),  "%Y-%m-%d,%H'%M'%S");
                 cb(null, req.session.username + ".tar.gz");
             }
         });
@@ -135,23 +144,37 @@ router.post('/upload/:idx/:title', function (req, res, next) {
                     }
 
                     if (result != null) {
-                        shelljs.exec('/usr/local/Auto_Scoring_System/src/ASS.sh' + " " + result.title + " " + result.unittest + " " + req.session.username, function (code, stdout, stderr) {
-                            console.log("Exit code : ", code);
-                            console.log("Output : ", stdout);
-                            console.log("StdErr : ", stderr);
-                        });
+                        UploadModel.findOne({uploader: req.session.username}, function (e, isUploaded) {
+                            shelljs.exec('/usr/local/Auto_Scoring_System/src/ASS.sh' + " " + result.title + " " + result.unittest + " " + req.session.username, function (code, stdout, stderr) {
+                                console.log("Exit code : ", code);
+                                console.log("Output : ", stdout);
+                                console.log("StdErr : ", stderr);
+                            });
 
-                        var newUpload = new UploadModel({
-                            idx: req.params.idx,
-                            uploader: req.session.username,
-                            regdate: Sugar.Date.format(new Date(), "%Y.%m.%d-%H:%M:%S")
-                        });
-                        newUpload.save(function (e, data) {
-                            if (e) {
-                                console.error('err', e);
-                                return handleError(e);
+                            if(isUploaded == null) {
+                                var newUpload = new UploadModel({
+                                    idx: req.params.idx,
+                                    uploader: req.session.username,
+                                    regdate: Sugar.Date.format(new Date(), "%Y.%m.%d-%H:%M:%S")
+                                });
+                                newUpload.save(function (e, data) {
+                                    if (e) {
+                                        console.error('err', e);
+                                        return handleError(e);
+                                    }
+                                    console.log("과제 업로드 결과 디비 저장");
+                                });
+                            }else{
+                                UploadModel.update(
+                                    {uploader: req.session.username},
+                                    {$set: {regdate: Sugar.Date.format(new Date(), "%Y.%m.%d-%H:%M:%S")}},
+                                    function (e, result) {
+                                        if(e){
+                                            console.error('err', e);
+                                            return handleError(e);
+                                        }
+                                    });
                             }
-                            console.log("과제 업로드 결과 디비 저장");
                         });
                     } else {
                         console.log("글이 없어양");
@@ -162,7 +185,6 @@ router.post('/upload/:idx/:title', function (req, res, next) {
     }
 
     res.redirect('/board/list');
-    //res.redirect(req.session.backURL);
 });
 
 router.post('/signup', function (req, res, next) {
@@ -234,6 +256,8 @@ router.post('/check', function (req, res, next) {
     });
 });
 
+router.get('/')
+
 router.get('/logout', function (req, res, next) {
     console.log("접속중인 아이디 : " + req.session.username);
     if(req.session){
@@ -245,7 +269,6 @@ router.get('/logout', function (req, res, next) {
     res.redirect('/board/list');
 });
 
-/* get write form */
 router.get('/write', function(req, res, next) {
     if ( req.session.perm )
         res.render('write', {title: "셋업", sess: req.session});
@@ -255,7 +278,6 @@ router.get('/write', function(req, res, next) {
         res.send('<script>alert("로그인이 필요합니다."); location.href="/board/list/1"</script>');
 });
 
-/* submit write form */
 router.post('/write', function (req, res, next) {
     console.log(req.body);
     console.log(req.session);
@@ -280,7 +302,7 @@ router.post('/write', function (req, res, next) {
         content: req.body.content,
         writer: req.session.name,
         submit_form: req.body.submit_form,
-        attachment: req.body.attachment
+        attachment: ""
     });
 
     board.save(function (err, doc) {
@@ -346,28 +368,59 @@ router.get('/list/:page', function (req, res, next) {
     });
 });
 
-router.get('/read/:page/:idx', function (req, res, next) {
+router.post('/assignment', function (req, res, next) {
+    var uploader = req.session.username;
+
+    console.log(uploader);
+    console.log(req.session);
+
+    UploadModel.findOne({uploader: uploader}, function (err, result) {
+        console.log(result);
+        res.json(result);
+    })
+});
+
+router.get('/assignment/:idx', function (req, res, next) {
+    if(!req.session.username){
+        res.send('<script>alert("로그인이 필요합니다."); location.href="/board/list"</script>');
+    }else if(req.session.perm){
+        var idx = req.params.idx;
+
+        UploadModel.find({idx: idx}, function (err, result) {
+            if(err){
+                console.error('err', err);
+                return handleError(err);
+            }
+
+            var datas = {"title": "과제 점수 관리", "data": result, "sess": req.session, "idx": idx};
+
+            console.log(result);
+
+            res.render('assignment', datas);
+        });
+    }
+});
+
+router.get('/read/:idx', function (req, res, next) {
     if(!req.session.username)
-        res.send('<script>alert("로그인이 필요합니다."); location.href="/board/list/1"</script>');
+        res.send('<script>alert("로그인이 필요합니다."); location.href="/board/list"</script>');
         // res.redirect('/board/list');
     else {
-        var page = req.params.page;
         var idx = req.params.idx;
 
         BoardModel.findOne({"idx": idx}, function (err, docs) {
-            var datas = {};
-
             if (err){
                 console.error('err', err);
                 return handleError(err);
             }
 
             UploadModel.findOne({'idx': idx, 'uploader':req.session.username}, function (e, result) {
+                var datas = {"title": "글 읽기", "data": docs, "sess": req.session, "idx": idx, 'submit': '', 'result': result};
                 if(result != null) {
-                    datas = {"title": "글 읽기", "data": docs, "page": page, "sess": req.session, "idx": idx, 'submit': true};
+                    datas['submit'] = true
                     console.log('제출');
                 } else {
-                    datas = {"title": "글 읽기", "data": docs, "page": page, "sess": req.session, "idx": idx, 'submit': false};
+                    datas['submit'] = false
                     console.log('미제출');
                 }
 
@@ -384,9 +437,9 @@ router.get('/write300', function (req, res, next) {
             "subject": i + '차 과제 안내',
             "content": i + '차 과제 안내입니다.',
             "submit_form": 'tar.gz',
-            'date': '어제',
-            'writer': '관리맨',
-            'attached': '첨부맨'
+            'date': Date.now(),
+            'writer': '나',
+            'attachment': ''
        });
 
        board.save(function (err, doc) {

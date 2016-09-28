@@ -30,7 +30,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="material-icons">attachment</i> </span>
                                     <label for="attachment" class="control-label">첨부파일</label>
-                                    <input type='file' name='attachment' id="attachment" class="form-control" required>
+                                    <input type='file' name='attachment' id="attachment" class="form-control" accept=".tar.gz" required>
 
                                     <input type="text" readonly="" class="form-control">
                                     <span class="input-group-btn input-group-sm">
@@ -64,7 +64,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="material-icons">attachment</i> </span>
                                     <label for="attachment" class="control-label">첨부파일</label>
-                                    <input type='file' name='attachment' id="attachment" class="form-control" required>
+                                    <input type='file' name='attachment' id="attachment" class="form-control" accept=".tar.gz" required>
 
                                     <input type="text" readonly="" class="form-control">
                                     <span class="input-group-btn input-group-sm">
@@ -80,7 +80,93 @@
                 </tr>
                 <% } %>
             </table>
-            <a href="/board/list" class="btn btn-lg btn-info btn-raised">목록</a>
+            <a href="/board/list" class="btn btn-lg btn-info btn-raised">목록 <i class="material-icons">list</i></a>
+            <div style="float: right;">
+                <% if(sess.perm) { %>
+                <a href="/board/assignment/<%= data.idx %>" class="btn btn-lg btn-inverse btn-raised"><i class="material-icons">assignment</i> 과제 점수 관리</a>
+                <% } else { %>
+                <button class="btn btn-raised btn-success" data-toggle="modal" data-target="#check_assignment"><i class="material-icons">edit</i> 점수 확인</button>
+                <% } %>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade " id="check_assignment">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h1 class="modal-title"><%= sess.name %> 님의 과제 채점 결과</h1>
+            </div>
+            <div class="modal-body">
+                <div id="imustvecalledathousandtimes">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3>Assertion result</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-inverse" id="table_result">
+                                <tr>
+                                    <th>Message</th>
+                                    <th>Testcase</th>
+                                    <th>Testsuite</th>
+                                    <th>Score</th>
+                                </tr>
+                            </table>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">닫기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var data = <%- JSON.stringify(result) %>;
+        var score = 0;
+
+        console.log(data);
+
+        for (var i = 0; i < data.assert.length; i++) {
+            var row = "<tr><td>";
+
+            row += data.assert[i]['Message'] + "</td>";
+            row += "<td>" + data.assert[i]['Testcase'] + "</td>";
+            row += "<td>" + data.assert[i]['Testsuite'] + "</td>";
+            row += "<td>- " + data.assert[i]['Score'] + "</td></tr>"
+
+            score += Number(data.assert[i]['Score']);
+
+            console.log(row);
+            $('#table_result').append(row);
+        }
+
+        $(document).on('click', '#hellofromtheotherside', function (e) {
+            /*
+            jQuery.ajax({
+                type:"POST",
+                url:"/board/assignment",
+                dataType:"JSON",
+                success : function(data) {
+                    var score = 0;
+
+                    for(var i = 0; i < data.assert.length; i++){
+
+                    }
+                },
+                complete : function(data) {
+
+                },
+                error : function(xhr, status, error) {
+
+                    alert(error);
+
+                }
+            });
+            */
+        });
+    });
+</script>
