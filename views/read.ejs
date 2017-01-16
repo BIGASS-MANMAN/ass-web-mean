@@ -8,22 +8,22 @@
             </div>
             <table class="table table-hover">
                 <tr class="row">
-                    <th class="col-md-2">제출기한</th>
-                    <td class="col-md-10"><%=data.date%></td>
+                    <th class="col-md-2" style="vertical-align: middle;"><h4>제출기한</h4></th>
+                    <td class="col-md-10"><h3><%=data.date%></h3></td>
                 </tr>
                 <tr class="row">
-                    <th class="col-md-2">내용</th>
-                    <td class="col-md-10"><%=data.content%></td>
+                    <th class="col-md-2" style="vertical-align: middle;"><h4>내용</h4></th>
+                    <td class="col-md-10"><p><%=data.content%></p></td>
                 </tr>
                 <tr class="row">
-                    <th class="col-md-2">제출양식</th>
-                    <td class="col-md-10"><%=data.submit_form%></td>
+                    <th class="col-md-2" style="vertical-align: middle;"><h4>제출양식</h4></th>
+                    <td class="col-md-10"><span class="badge"><h4><%=data.submit_form%></h4></span></td>
                 </tr>
                 <tr class="row">
-                    <th class="col-md-2">첨부파일</th>
+                    <th class="col-md-2" style="vertical-align: middle;"><h4>첨부파일</h4></th>
                     <td class="col-md-10">
                         <% if(data.attachment) {%>
-                        <a href="/board/download/<%=data.idx%>"><%=data.attachment%></a>
+                        <h4><a href="/board/download/<%=data.idx%>"><%=data.attachment%></a></h4>
                         <% }else if(sess.perm){ %>
                         <form action="/board/upload/<%=data.idx%>/<%=data.title%>" method="post" enctype="multipart/form-data">
                             <div class="form-group form-group-lg label-floating">
@@ -46,16 +46,18 @@
                     </td>
                 </tr>
                 <tr class="row">
-                    <th class="col-md-2">작성자</th>
-                    <td class="col-md-10"><%=data.writer%></td>
+                    <th class="col-md-2"><h4>작성자</h4></th>
+                    <td class="col-md-10" style="vertical-align: middle;"><label class="label label-success"><%=data.writer%></label></td>
                 </tr>
                 <% if(!sess.perm) {%>
                 <tr class="row">
                     <th class="col-md-2">
                         <%if(submit){%>
-                            [제출 완료]
+                            제출 완료
+                            <i class="material-icons">assignment_turned_in</i>
                         <%}else{%>
-                            [미제출]
+                            미제출
+                            <i class="material-icons">assignment_late</i>
                         <%}%>
                     </th>
                     <td class="col-md-10">
@@ -128,20 +130,20 @@
         var data = <%- JSON.stringify(result) %>;
         var score = 0;
 
-        console.log(data);
+        if(data.assert != null) {
+            for (var i = 0; i < data.assert.length; i++) {
+                var row = "<tr><td>";
 
-        for (var i = 0; i < data.assert.length; i++) {
-            var row = "<tr><td>";
+                row += data.assert[i]['Message'] + "</td>";
+                row += "<td>" + data.assert[i]['Testcase'] + "</td>";
+                row += "<td>" + data.assert[i]['Testsuite'] + "</td>";
+                row += "<td>- " + data.assert[i]['Score'] + "</td></tr>"
 
-            row += data.assert[i]['Message'] + "</td>";
-            row += "<td>" + data.assert[i]['Testcase'] + "</td>";
-            row += "<td>" + data.assert[i]['Testsuite'] + "</td>";
-            row += "<td>- " + data.assert[i]['Score'] + "</td></tr>"
+                score += Number(data.assert[i]['Score']);
 
-            score += Number(data.assert[i]['Score']);
-
-            console.log(row);
-            $('#table_result').append(row);
+                console.log(row);
+                $('#table_result').append(row);
+            }
         }
 
         $(document).on('click', '#hellofromtheotherside', function (e) {
@@ -170,3 +172,11 @@
         });
     });
 </script>
+
+
+<style>
+    th {
+        height:100%;
+        text-align: center;
+    }
+</style>

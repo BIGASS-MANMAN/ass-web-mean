@@ -1,6 +1,7 @@
 th {
-    background-color: #efefef;
-    vertical-align: middle;
+    /*background-color: #efefef;*/
+    background-color: #009688;
+    color: #fff;
 }
 
 hr {
@@ -15,4 +16,14 @@ hr {
 
 .panel-body{
     padding:3%;
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
 }

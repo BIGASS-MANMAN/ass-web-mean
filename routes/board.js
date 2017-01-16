@@ -81,6 +81,8 @@ router.post('/upload/:idx/:title', function (req, res, next) {
     console.log(req.session);
     console.log(req.params.idx);
 
+    const uploader = req.session.hakbun;
+
     if(req.session.perm){   // 조교가 업로드했을 때.
         var uploadPath = __dirname + '/../../Auto_Scoring_System/info/' + req.params.title + '/';
         var filename = '';
@@ -114,8 +116,9 @@ router.post('/upload/:idx/:title', function (req, res, next) {
                 });
             }
         });
-    } else if (!req.session.perm){
-        var uploadPath = __dirname + '/../../Auto_Scoring_System/Assignment/' + req.params.title + '/' + req.session.username + '/';
+    }
+    else if (!req.session.perm){    // Student upload
+        var uploadPath = __dirname + '/../../Auto_Scoring_System/Assignment/' + req.params.title + '/' + uploader + '/';
 
         mkdirp.sync(uploadPath + '/Result');
 
@@ -124,7 +127,7 @@ router.post('/upload/:idx/:title', function (req, res, next) {
                 cb(null, uploadPath);
             },
             filename: function (req, file, cb) {
-                cb(null, req.session.username + ".tar.gz");
+                cb(null, uploader + ".tar.gz");
             }
         });
 
@@ -144,8 +147,8 @@ router.post('/upload/:idx/:title', function (req, res, next) {
                     }
 
                     if (result != null) {
-                        UploadModel.findOne({uploader: req.session.username}, function (e, isUploaded) {
-                            shelljs.exec('/usr/local/Auto_Scoring_System/src/ASS.sh' + " " + result.title + " " + result.unittest + " " + req.session.username, function (code, stdout, stderr) {
+                        UploadModel.findOne({uploader: uploader}, function (e, isUploaded) {
+                            shelljs.exec('/usr/local/Auto_Scoring_System/src/ASS.sh' + " " + result.title + " " + result.unittest + " " + uploader, function (code, stdout, stderr) {
                                 console.log("Exit code : ", code);
                                 console.log("Output : ", stdout);
                                 console.log("StdErr : ", stderr);
@@ -154,7 +157,7 @@ router.post('/upload/:idx/:title', function (req, res, next) {
                             if(isUploaded == null) {
                                 var newUpload = new UploadModel({
                                     idx: req.params.idx,
-                                    uploader: req.session.username,
+                                    uploader: uploader,
                                     regdate: Sugar.Date.format(new Date(), "%Y.%m.%d-%H:%M:%S")
                                 });
                                 newUpload.save(function (e, data) {
@@ -166,7 +169,7 @@ router.post('/upload/:idx/:title', function (req, res, next) {
                                 });
                             }else{
                                 UploadModel.update(
-                                    {uploader: req.session.username},
+                                    {uploader: uploader},
                                     {$set: {regdate: Sugar.Date.format(new Date(), "%Y.%m.%d-%H:%M:%S")}},
                                     function (e, result) {
                                         if(e){
@@ -369,7 +372,7 @@ router.get('/list/:page', function (req, res, next) {
 });
 
 router.post('/assignment', function (req, res, next) {
-    var uploader = req.session.username;
+    const uploader = req.session.hakbun;
 
     console.log(uploader);
     console.log(req.session);
@@ -402,6 +405,8 @@ router.get('/assignment/:idx', function (req, res, next) {
 });
 
 router.get('/read/:idx', function (req, res, next) {
+    const uploader = req.session.hakbun;
+
     if(!req.session.username)
         res.send('<script>alert("로그인이 필요합니다."); location.href="/board/list"</script>');
         // res.redirect('/board/list');
@@ -414,17 +419,23 @@ router.get('/read/:idx', function (req, res, next) {
                 return handleError(err);
             }
 
-            UploadModel.findOne({'idx': idx, 'uploader':req.session.username}, function (e, result) {
-                var datas = {"title": "글 읽기", "data": docs, "sess": req.session, "idx": idx, 'submit': '', 'result': result};
-                if(result != null) {
-                    datas['submit'] = true
-                    console.log('제출');
-                } else {
-                    datas['submit'] = false
-                    console.log('미제출');
-                }
+            shelljs.exec('python /usr/local/Auto_Scoring_System/src/DB_Scoring.py' + " " + docs.title + " " + uploader, function (code, stdout, stderr){
+                console.log("Exit code : ", code);
+                console.log("Output : ", stdout);
+                console.log("StdErr : ", stderr);
 
-                res.render('read', datas);
+                UploadModel.findOne({'idx': idx, 'uploader':uploader}, function (e, result) {
+                    var datas = {"title": "글 읽기", "data": docs, "sess": req.session, "idx": idx, 'submit': '', 'result': result};
+                    if(result != null) {
+                        datas['submit'] = true;
+                        console.log('제출');
+                    } else {
+                        datas['submit'] = false;
+                        console.log('미제출');
+                    }
+
+                    res.render('read', datas);
+                });
             });
         });
     }

@@ -60,8 +60,8 @@ app.use(function(err, req, res, next) {
 });
 
 var http = require('http');
-app.set('port', process.env.PORT || 3000);
-// app.set('port', 8008);
+//app.set('port', process.env.PORT || 3000);
+app.set('port', 3000);
 var server = http.createServer(app);
 server.listen(app.get('port'));
 console.log("실행중");
