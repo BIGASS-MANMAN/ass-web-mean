@@ -57,7 +57,9 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
                 <% if(sess.username){ %>
-                <li><a href="/board/write" class="navbar-btn btn"><i class="material-icons">edit</i> 글쓰기</a></li>
+                <!--This is data structure sedction-->
+                <!--\<li><a href="/board/write" class="navbar-btn btn"><i class="material-icons">edit</i> 글쓰기</a></li>-->
+                <li><a href="/board/writeC" class="navbar-btn btn"><i class="material-icons">edit</i> Cprog</a></li>
                 <% }else{ %>
                 <li><a href="#" class="navbar-btn btn" data-toggle="modal" data-target="#member_login"><i class="material-icons">edit</i> 글쓰기</a> </li>
                 <% } %>

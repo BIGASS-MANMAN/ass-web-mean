@@ -272,16 +272,16 @@ router.get('/logout', function (req, res, next) {
     res.redirect('/board/list');
 });
 
-router.get('/write', function(req, res, next) {
+router.get('/writeC', function(req, res, next) {
     if ( req.session.perm )
-        res.render('write', {title: "셋업", sess: req.session});
+        res.render('writeC', {title: "셋업", sess: req.session});
     else if ( !req.session.perm )
         res.send('<script>alert("권한이 없습니다."); location.href="/board/list/1"</script>');
     else
         res.send('<script>alert("로그인이 필요합니다."); location.href="/board/list/1"</script>');
 });
 
-router.post('/write', function (req, res, next) {
+router.post('/writeC', function (req, res, next) {
     console.log(req.body);
     console.log(req.session);
 /*
