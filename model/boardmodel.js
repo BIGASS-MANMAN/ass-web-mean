@@ -22,6 +22,12 @@ var BoardSchema = new mongoose.Schema({
     }
 });
 
+var CSchemna = new mongoose.Schema({
+    title: String,
+    cnt: Number,
+    subquestion: String
+});
+
 var UserSchema = new mongoose.Schema({
     idx: Number,
     id: String,
@@ -51,8 +57,10 @@ BoardSchema.plugin(ai.plugin, {
 var Board = mongoose.model('Board', BoardSchema);
 var User = mongoose.model('User', UserSchema);
 var Upload = mongoose.model('Upload', UploadSchema);
+var C = mongoose.model('C', CSchemna);
 // DB 스키마 컴파일링 종료.
 
 module.exports = Board;
 module.exports = User;
 module.exports = Upload;
+module.exports = C;

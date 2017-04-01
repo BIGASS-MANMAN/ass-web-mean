@@ -18,7 +18,7 @@ require('../model/boardmodel');
 const BoardModel = db.model('Board');
 const UserModel = db.model('User');
 const UploadModel = db.model('Upload');
-
+const CModel = db.model('C');
 
 router.use(session({
     secret: 'bimil',
@@ -297,6 +297,7 @@ router.post('/writeC', function (req, res, next) {
 */
 
     // DB model create & save.
+    /*
     var board = new BoardModel({
         title: req.body.title,
         unittest: req.body.unittest,
@@ -306,6 +307,12 @@ router.post('/writeC', function (req, res, next) {
         writer: req.session.name,
         submit_form: req.body.submit_form,
         attachment: ""
+    });
+    */
+    var board = new CModel({
+        title: req.body.title,
+        date: new Date.now(),
+        subquestion: req.body.subquestion
     });
 
     board.save(function (err, doc) {
